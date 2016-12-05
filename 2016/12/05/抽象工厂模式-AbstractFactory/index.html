@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>抽象工厂模式(AbstractFactory) | 步子的学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="创建型设计模式。为创建一组相关或相互依赖的对象提供一个接口，而且无需指定它们的具体类。
+工厂模式
+创建一个人
+1Person p = new Person();
+
+创建一个男人
+1Person p = new Man();
+
+创建一个女人
+1Person p = new Woman();
+
+封装变化点
+1234567891011Person p = PersonFactory.GetPerson(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象工厂模式(AbstractFactory)">
+<meta property="og:url" content="http://blog.step520.com/2016/12/05/抽象工厂模式-AbstractFactory/index.html">
+<meta property="og:site_name" content="步子的学习笔记">
+<meta property="og:description" content="创建型设计模式。为创建一组相关或相互依赖的对象提供一个接口，而且无需指定它们的具体类。
+工厂模式
+创建一个人
+1Person p = new Person();
+
+创建一个男人
+1Person p = new Man();
+
+创建一个女人
+1Person p = new Woman();
+
+封装变化点
+1234567891011Person p = PersonFactory.GetPerson(">
+<meta property="og:updated_time" content="2016-12-05T12:23:25.267Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抽象工厂模式(AbstractFactory)">
+<meta name="twitter:description" content="创建型设计模式。为创建一组相关或相互依赖的对象提供一个接口，而且无需指定它们的具体类。
+工厂模式
+创建一个人
+1Person p = new Person();
+
+创建一个男人
+1Person p = new Man();
+
+创建一个女人
+1Person p = new Woman();
+
+封装变化点
+1234567891011Person p = PersonFactory.GetPerson(">
+  
+    <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.step520.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">步子的学习笔记</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-抽象工厂模式-AbstractFactory" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/05/抽象工厂模式-AbstractFactory/" class="article-date">
+  <time datetime="2016-12-05T11:59:39.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      抽象工厂模式(AbstractFactory)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>创建型设计模式。为创建一组相关或相互依赖的对象提供一个接口，而且无需指定它们的具体类。</p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><ul>
+<li><p>创建一个人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person p = new Person();</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个男人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person p = new Man();</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个女人</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person p = new Woman();</div></pre></td></tr></table></figure>
+</li>
+<li><p>封装变化点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Person p = PersonFactory.GetPerson();</div><div class="line">public class PersonFactory</div><div class="line">&#123;</div><div class="line">    public static Person GetPerson()</div><div class="line">    &#123;</div><div class="line">        //需要什么实例，修改并返回所需实例</div><div class="line">        //reutrn new Person();</div><div class="line">        //return new Man();</div><div class="line">        return new Woman();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="工厂模式创建一系列相互依赖的对象"><a href="#工厂模式创建一系列相互依赖的对象" class="headerlink" title="工厂模式创建一系列相互依赖的对象"></a>工厂模式创建一系列相互依赖的对象</h3><ul>
+<li><p>调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//路</div><div class="line">Road r = SkinFactory.GetRoad();</div><div class="line">//建筑物</div><div class="line">Building b = SkinFactory.GetBuilding();</div><div class="line">//丛林</div><div class="line">Jungle j = SkinFactory.Jungle();</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">public class SkinFactory()</div><div class="line">&#123;</div><div class="line">    public static Road GetRoad()</div><div class="line">    &#123;</div><div class="line">        //水泥路</div><div class="line">        return new WaterRoad();</div><div class="line">        //高速公路</div><div class="line">        //return new Highway();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static Building GetBuilding()</div><div class="line">    &#123;</div><div class="line">        //居民楼</div><div class="line">        return new ResidentBuilding();</div><div class="line">        //办公楼</div><div class="line">        //return new OfficeBuilding();   </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static Jungle GetJungle()</div><div class="line">    &#123;</div><div class="line">        //绿色丛林</div><div class="line">        return new GreenJungle();</div><div class="line">        //黄色森林(荒野)</div><div class="line">        //return new YellowJungle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>一个游戏，需要经常变换游戏场景，比如，第一个月是经典场景，第二月换为现代场景…如此看来，场景是变化点，需要对场景进行封装。也就是对上一个例子的SkinFactory进行抽象封装。(设计很大部分都是为了扩展，而非修改)</p>
+<ul>
+<li><p>场景抽象类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public abstract class Road&#123;&#125;</div><div class="line">public abstract class Building&#123;&#125;</div><div class="line">public abstract class Jungle&#123;&#125;</div><div class="line">public abstract class SkinFactory</div><div class="line">&#123;</div><div class="line">    public abstract Road GetRoad();</div><div class="line">    public abstract Building GetBuilding();</div><div class="line">    public abstract Jungle GetJungle();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>经典场景实现类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class WaterRoad:Road&#123;&#125;</div><div class="line">public class ResidentBuilding:Building&#123;&#125;</div><div class="line">public class GreenJungle:Jungle&#123;&#125;</div><div class="line">public class ClassicSkinFactory:SkinFactory</div><div class="line">&#123;</div><div class="line">    public override Road GetRoad()</div><div class="line">    &#123;</div><div class="line">        return new WaterRoad();</div><div class="line">    &#125;</div><div class="line">    public override Building GetBuilding()</div><div class="line">    &#123;</div><div class="line">        return new ResidentBuilding();</div><div class="line">    &#125;</div><div class="line">    public override Jungle GetJungle()</div><div class="line">    &#123;</div><div class="line">        return new GreenJungle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>现代场景实现类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Highway:Road&#123;&#125;</div><div class="line">public class OfficeBuilding:Building&#123;&#125;</div><div class="line">public class YellowJungle:Jungle&#123;&#125;</div><div class="line">public class ModernSkinFactory:SkinFactory</div><div class="line">&#123;</div><div class="line">    public override Road GetRoad()</div><div class="line">    &#123;</div><div class="line">        return new Highway();</div><div class="line">    &#125;</div><div class="line">    public override Building GetBuilding()</div><div class="line">    &#123;</div><div class="line">        return new OfficeBuilding();</div><div class="line">    &#125;</div><div class="line">    public overide Jungle GetJungle()</div><div class="line">    &#123;</div><div class="line">        return new YellowJungle();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>客户端调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">void Main()</div><div class="line">&#123;</div><div class="line">    //实例化SkinFactory</div><div class="line">    SkinFactory skinFactory = new ClassicSkinFactory();</div><div class="line">    //实际调用ClassicSkinFactory.GetRoad()</div><div class="line">    Road r = skinFactory.GetRoad();</div><div class="line">    </div><div class="line">    Building b = skinFactory.GetBuilding();</div><div class="line">    Jungle j = skinFactory.GetJungle();</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.step520.com/2016/12/05/抽象工厂模式-AbstractFactory/" data-id="ciwc3jj0h000ickw0v0b19j10" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/05/生成器模式-Builder/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          生成器模式(Builder)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/05/工厂方法模式-FactoryMethod/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">工厂方法模式(FactoryMethod)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title categories">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title tagcloud">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/05/生成器模式-Builder/">生成器模式(Builder)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/05/抽象工厂模式-AbstractFactory/">抽象工厂模式(AbstractFactory)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/05/工厂方法模式-FactoryMethod/">工厂方法模式(FactoryMethod)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/05/单例模式-Singleton/">单例模式(Singleton)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/05/闭包-2/">闭包(2)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+     
+
+
+   <div class="widget-wrap">
+    <h3 class="widget-title lastest-comments">最新评论</h3>
+    <div class="widget">
+        <span>此widget基于多说，如需使用，请启用 duoshuo_shortname 属性</span>
+    </div>
+  </div>
+
+
+  
+     
+
+
+   <div class="widget-wrap">
+    <h3 class="widget-title hot-comment-posts">热评文章</h3>
+    <div class="widget">
+        <span>此widget基于多说，如需使用，请启用 duoshuo_shortname 属性</span>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title archive">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2016 OneStep&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;http://blog.step520.com
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+
+
+ <script src="/jquery/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
