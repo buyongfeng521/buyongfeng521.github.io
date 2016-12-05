@@ -5,19 +5,16 @@
   
   <title>生成器模式(Builder) | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。
-抽象类（房子对象以及相关对象和方法）123456789101112131415161718192021222324public abstract class Floor&amp;#123;&amp;#125;pub">
+  <meta name="description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="生成器模式(Builder)">
 <meta property="og:url" content="http://blog.step520.com/2016/12/05/生成器模式-Builder/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。
-抽象类（房子对象以及相关对象和方法）123456789101112131415161718192021222324public abstract class Floor&amp;#123;&amp;#125;pub">
-<meta property="og:updated_time" content="2016-12-05T12:25:07.742Z">
+<meta property="og:description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。">
+<meta property="og:updated_time" content="2016-12-05T14:00:08.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生成器模式(Builder)">
-<meta name="twitter:description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。
-抽象类（房子对象以及相关对象和方法）123456789101112131415161718192021222324public abstract class Floor&amp;#123;&amp;#125;pub">
+<meta name="twitter:description" content="创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -96,7 +93,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。<br>如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。</p>
+        <p>创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。<br>如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。<br><a id="more"></a></p>
 <h3 id="抽象类（房子对象以及相关对象和方法）"><a href="#抽象类（房子对象以及相关对象和方法）" class="headerlink" title="抽象类（房子对象以及相关对象和方法）"></a>抽象类（房子对象以及相关对象和方法）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public abstract class Floor</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Ceiling</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Window</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Door</div><div class="line">&#123;&#125;</div><div class="line">public abstract class House</div><div class="line">&#123;&#125;</div><div class="line">public abstract class BuildHouse</div><div class="line">&#123;</div><div class="line">    public Floor f;</div><div class="line">    public Ceiling c;</div><div class="line">    public Window w;</div><div class="line">    public Door d;</div><div class="line">    </div><div class="line">    public abstract void BuildFloor();</div><div class="line">    public abstract void BuildCeiling();</div><div class="line">    public abstract void BuildWindow();</div><div class="line">    public abstract void BuildDoor();</div><div class="line">    </div><div class="line">    public abstract House GetHouse();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="实现类（具体类对象，房子的一个实现类）"><a href="#实现类（具体类对象，房子的一个实现类）" class="headerlink" title="实现类（具体类对象，房子的一个实现类）"></a>实现类（具体类对象，房子的一个实现类）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class MyFloor:Floor</div><div class="line">&#123;&#125;</div><div class="line">public class MyCeiling:Ceiling</div><div class="line">&#123;&#125;</div><div class="line">public class MyWindow:Window</div><div class="line">&#123;&#125;</div><div class="line">public class MyDoor:Door</div><div class="line">&#123;&#125;</div><div class="line">public class MyHouse:House</div><div class="line">&#123;&#125;</div><div class="line">public class MyBuildHouse:BuildHouse</div><div class="line">&#123;</div><div class="line">    public override void BuildFloor()</div><div class="line">    &#123;</div><div class="line">        f = new MyFloor();</div><div class="line">    &#125;</div><div class="line">    public override void BuildCeiling()</div><div class="line">    &#123;</div><div class="line">        c = new MyCeiling();</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    public override House GetHouse()</div><div class="line">    &#123;</div><div class="line">        return new MyHouse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="构建过程类（房子构建过程，稳定部分）"><a href="#构建过程类（房子构建过程，稳定部分）" class="headerlink" title="构建过程类（房子构建过程，稳定部分）"></a>构建过程类（房子构建过程，稳定部分）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class HouseManager</div><div class="line">&#123;</div><div class="line">    public House CreateHouse(BuildHouse b)</div><div class="line">    &#123;</div><div class="line">        //一地板，一天花板，两个窗，一个门（相对稳定）</div><div class="line">        b.BuildFloor();</div><div class="line">        b.BuildCeiling();</div><div class="line">        b.BuildWindow();</div><div class="line">        b.BuildWindow();</div><div class="line">        b.BuildDoor();</div><div class="line">        </div><div class="line">        return b.GetHouse();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -104,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2016/12/05/生成器模式-Builder/" data-id="ciwc44hv7000k5kw0oevfip9c" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2016/12/05/生成器模式-Builder/" data-id="ciwc5c77m000kdkw0edoy9peo" class="article-share-link">分享</a>
       
       
       

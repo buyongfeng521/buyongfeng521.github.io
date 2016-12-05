@@ -5,25 +5,16 @@
   
   <title>天猫评论爬取和处理 | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。
-Python爬取数据
-URL拼接(得到请求的URL)
-12345678910paras = urllib.urlencode(&amp;#123;&amp;apos;itemId&amp;apos; : itemId,&amp;apos;order&amp;apos; : order,&amp;apos;pageSize&amp;apos; :">
+  <meta name="description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="天猫评论爬取和处理">
 <meta property="og:url" content="http://blog.step520.com/2016/12/05/天猫评论爬取和处理/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。
-Python爬取数据
-URL拼接(得到请求的URL)
-12345678910paras = urllib.urlencode(&amp;#123;&amp;apos;itemId&amp;apos; : itemId,&amp;apos;order&amp;apos; : order,&amp;apos;pageSize&amp;apos; :">
-<meta property="og:updated_time" content="2016-12-05T09:13:52.549Z">
+<meta property="og:description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。">
+<meta property="og:updated_time" content="2016-12-05T14:01:35.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="天猫评论爬取和处理">
-<meta name="twitter:description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。
-Python爬取数据
-URL拼接(得到请求的URL)
-12345678910paras = urllib.urlencode(&amp;#123;&amp;apos;itemId&amp;apos; : itemId,&amp;apos;order&amp;apos; : order,&amp;apos;pageSize&amp;apos; :">
+<meta name="twitter:description" content="从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -102,7 +93,7 @@ URL拼接(得到请求的URL)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。</p>
+        <p>从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。<br><a id="more"></a></p>
 <h4 id="Python爬取数据"><a href="#Python爬取数据" class="headerlink" title="Python爬取数据"></a>Python爬取数据</h4><ul>
 <li><p>URL拼接(得到请求的URL)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">paras = urllib.urlencode(&#123;&apos;itemId&apos; : itemId,</div><div class="line">&apos;order&apos; : order,</div><div class="line">&apos;pageSize&apos; : pageSize,</div><div class="line">&apos;currentPage&apos; : currentPage,</div><div class="line">&apos;sellerId&apos; : 1,</div><div class="line">&apos;append&apos; : 0,</div><div class="line">&apos;content&apos; : 0,</div><div class="line">&apos;tagId&apos; : &apos;&apos;,</div><div class="line">&apos;callback&apos; : &apos;jsonp618&apos;&#125;)</div><div class="line">commentUrl = tmall_url + paras</div></pre></td></tr></table></figure>
@@ -171,7 +162,7 @@ URL拼接(得到请求的URL)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2016/12/05/天猫评论爬取和处理/" data-id="ciwc44huw000c5kw0488m6l5y" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2016/12/05/天猫评论爬取和处理/" data-id="ciwc5c773000adkw0agwg3wws" class="article-share-link">分享</a>
       
       
       
