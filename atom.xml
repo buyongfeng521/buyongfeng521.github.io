@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.step520.com/"/>
-  <updated>2016-12-05T14:00:08.647Z</updated>
+  <updated>2016-12-07T04:39:10.646Z</updated>
   <id>http://blog.step520.com/</id>
   
   <author>
@@ -14,6 +14,275 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AngularJS（6）Loading</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%886%EF%BC%89Loading/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（6）Loading/</id>
+    <published>2016-12-07T04:29:20.000Z</published>
+    <updated>2016-12-07T04:39:10.646Z</updated>
+    
+    <content type="html"><![CDATA[<p>页面请求数据时候，为了用户体验，会加入加载数据的动画。<br>本篇记录如何加入css3的loading动画。<br><a id="more"></a></p>
+<hr>
+<h3 id="搜索loading-css3"><a href="#搜索loading-css3" class="headerlink" title="搜索loading css3"></a>搜索loading css3</h3><ul>
+<li><a href="http://tobiasahlin.com/spinkit/" target="_blank" rel="external">loading</a></li>
+<li>选择一款自己喜欢的loading</li>
+<li><p>复制css和html到项目中</p>
+<ul>
+<li>css复制到app.css底部</li>
+<li>html复制到需要加载的html页面中<h3 id="通过AngularJS的双向数据绑定实现loading的隐藏显示"><a href="#通过AngularJS的双向数据绑定实现loading的隐藏显示" class="headerlink" title="通过AngularJS的双向数据绑定实现loading的隐藏显示"></a>通过AngularJS的双向数据绑定实现loading的隐藏显示</h3></li>
+<li><p>加入遮罩层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">   &lt;!-- html --&gt;</div><div class="line">&lt;div class=&quot;mask&quot; ng-if=&quot;loading&quot;&gt;</div><div class="line">    &lt;div class=&quot;spinner&quot;&gt;</div><div class="line">        &lt;div class=&quot;dot1&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;dot2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;!-- css --&gt;</div><div class="line">.mask&#123;</div><div class="line">	position: fixed;</div><div class="line">	top: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	left: 0;</div><div class="line">	background-color:rgba(0,0,0,.4);</div><div class="line">	z-index: 2000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>赋值$scope.loading</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$scope.loading = true;</div><div class="line"></div><div class="line">HttpService.jsonp(&apos;http://api.douban.com/v2/movie/&apos; + $routeParams.category, &#123; start: start, count: count &#125;, function(data) &#123;</div><div class="line">    $scope.loading = false;</div><div class="line">    ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用loading(ng-if=”loading”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;mask&quot; ng-if=&quot;loading&quot;&gt;</div><div class="line">    &lt;div class=&quot;spinner&quot;&gt;</div><div class="line">        &lt;div class=&quot;dot1&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;dot2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;页面请求数据时候，为了用户体验，会加入加载数据的动画。&lt;br&gt;本篇记录如何加入css3的loading动画。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS（5）导航焦点自动切换</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%885%EF%BC%89%E5%AF%BC%E8%88%AA%E7%84%A6%E7%82%B9%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/</id>
+    <published>2016-12-07T02:23:07.000Z</published>
+    <updated>2016-12-07T04:28:41.115Z</updated>
+    
+    <content type="html"><![CDATA[<p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a><br><em>*</em> 创建指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[])</div><div class="line">.directive(&apos;指令名称-驼峰命名&apos;,[&apos;参数&apos;,function(参数)&#123;</div><div class="line">	 var path = $location.path();</div><div class="line">	 return&#123;</div><div class="line">	 	restrict:&apos;A&apos;,//类型</div><div class="line">	 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">	 		//操作</div><div class="line">	 	&#125;</div><div class="line">	 &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
+<p><strong><em> 指令调用<br>  如果名称为 </em> homeIndex <em> 使用的时候为 </em> home-index <em>
+</em></strong> 源码</p>
+<ul>
+<li><p>创建指令directive</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	angular.module(&apos;moviecat.directives.autofocus&apos;,[])</div><div class="line">	.directive(&apos;autoFocus&apos;,[&apos;$location&apos;,function($location)&#123;</div><div class="line">		 var path = $location.path();</div><div class="line">		 return&#123;</div><div class="line">		 	restrict:&apos;A&apos;,</div><div class="line">		 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">		 		var aLink = iElm.children().attr(&apos;href&apos;);</div><div class="line">		 		var type = aLink.replace(/#(\/.+?)\/\d+/,&apos;$1&apos;);</div><div class="line">		 		if(path.startsWith(type))&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;</div><div class="line">		 		iElm.on(&apos;click&apos;,function()&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;);</div><div class="line">		 	&#125;</div><div class="line">		 &#125;;</div><div class="line">	&#125;]);</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   ...</div><div class="line">&lt;ul class=&quot;nav nav-sidebar&quot;&gt;</div><div class="line">	&lt;li auto-focus class=&quot;active&quot;&gt;&lt;a href=&quot;#/in_theaters/1&quot;&gt;正在热映&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li auto-focus&gt;&lt;a href=&quot;#/coming_soon/1&quot;&gt;即将上映&lt;/a&gt;&lt;/li&gt;</div><div class="line">	&lt;li auto-focus&gt;&lt;a href=&quot;#/top250/1&quot;&gt;TOP250&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">   ...</div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Angular写一个指令，点击时候，自动切换焦点。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS（4）分页</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%884%EF%BC%89%E5%88%86%E9%A1%B5/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（4）分页/</id>
+    <published>2016-12-07T02:22:56.000Z</published>
+    <updated>2016-12-07T04:17:34.028Z</updated>
+    
+    <content type="html"><![CDATA[<p>数据请求过多，导致加载很慢，就需要进行分页。<br>第几页page，每页多少条count，共几页totalPages。<br>page = n;<br>start = (n-1)*count;<br>totalPages = Math.ceil(tatalCount/count);<br><a id="more"></a></p>
+<hr>
+<h3 id="根据上述公式，结合豆瓣API源代码如下"><a href="#根据上述公式，结合豆瓣API源代码如下" class="headerlink" title="根据上述公式，结合豆瓣API源代码如下"></a>根据上述公式，结合豆瓣API源代码如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">(function(angular) &#123;</div><div class="line">    &apos;use strict&apos;;</div><div class="line">    /*定义模块*/</div><div class="line">    var module = angular.module(&apos;moviecat.movie_list&apos;, [&apos;ngRoute&apos;, &apos;moviecat.services.http&apos;]);</div><div class="line">    /*定义路由*/</div><div class="line">    module.config([&apos;$routeProvider&apos;, function($routeProvider) &#123;</div><div class="line">        $routeProvider.when(&apos;/:category/:page&apos;, &#123;</div><div class="line">            templateUrl: &apos;movie_list/view.html&apos;,</div><div class="line">            controller: &apos;MovieListController&apos;</div><div class="line">        &#125;);</div><div class="line">    &#125;]);</div><div class="line">    /*定义控制器*/</div><div class="line">    module.controller(&apos;MovieListController&apos;, [</div><div class="line">        &apos;$scope&apos;,</div><div class="line">        &apos;$http&apos;,</div><div class="line">        &apos;$route&apos;,</div><div class="line">        &apos;$routeParams&apos;,</div><div class="line">        &apos;HttpService&apos;,</div><div class="line">        function($scope, $http, $route, $routeParams, HttpService) &#123;</div><div class="line">            var count = 6;</div><div class="line">            var page = parseInt($routeParams.page);</div><div class="line">            var start = (page - 1) * count;</div><div class="line">            /*model*/</div><div class="line">            $scope.loading = true;</div><div class="line">            $scope.message = &quot;&quot;;</div><div class="line">            $scope.datalist = [];</div><div class="line">            $scope.title = &quot;&quot;;</div><div class="line">            $scope.totalCount = 0;</div><div class="line">            $scope.totalPages = 0;</div><div class="line">            $scope.currentPage = page;</div><div class="line">            </div><div class="line">            HttpService.jsonp(&apos;http://api.douban.com/v2/movie/&apos; + $routeParams.category, &#123; start: start, count: count &#125;, function(data) &#123;</div><div class="line">                console.log(data);</div><div class="line">                $scope.loading = false;</div><div class="line">                $scope.title = data.title;</div><div class="line">                $scope.datalist = data.subjects;</div><div class="line">                $scope.totalCount = data.total;</div><div class="line">                $scope.totalPages = Math.ceil(data.total/count);</div><div class="line">                $scope.$apply();</div><div class="line">                console.log(data.subjects);</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">            /*function*/</div><div class="line">            $scope.go = function(page) &#123;</div><div class="line">                if (page &gt; 0 &amp;&amp; page &lt;= $scope.totalPages) &#123;</div><div class="line">                    $route.updateParams(&#123; page: page &#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    ]);</div><div class="line"></div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-show=&quot;!loading&quot;&gt;</div><div class="line">    &lt;p&gt;总共：&#123;&#123;totalPages&#125;&#125;页，第&#123;&#123;currentPage&#125;&#125;/&#123;&#123;totalPages&#125;&#125;页&lt;/p&gt;</div><div class="line">    &lt;nav&gt;</div><div class="line">        &lt;ul class=&quot;pager&quot;&gt;</div><div class="line">            &lt;li ng-class=&quot;&#123;disabled:currentPage &lt; 2&#125;&quot;&gt;&lt;a href=&quot;javascript:&quot; ng-click=&quot;go(currentPage-1)&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;li ng-class=&quot;&#123;disabled:currentPage &gt;= totalPages&#125;&quot;&gt;&lt;a href=&quot;javascript:&quot; ng-click=&quot;go(currentPage+1)&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    &lt;/nav&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><ul>
+<li><p>路由通过 <strong> :变量名称 </strong> 传递变化数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">module.config([&apos;$routeProvider&apos;, function($routeProvider) &#123;</div><div class="line">    $routeProvider.when(&apos;/:category/:page&apos;, &#123;</div><div class="line">        templateUrl: &apos;movie_list/view.html&apos;,</div><div class="line">        controller: &apos;MovieListController&apos;</div><div class="line">    &#125;);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过 <strong> $routeParams.变量名称 </strong> 获取路由变量值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var page = parseInt($routeParams.page);</div></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://developers.douban.com/wiki/?title=api_v2" target="_blank" rel="external">豆瓣API地址</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数据请求过多，导致加载很慢，就需要进行分页。&lt;br&gt;第几页page，每页多少条count，共几页totalPages。&lt;br&gt;page = n;&lt;br&gt;start = (n-1)*count;&lt;br&gt;totalPages = Math.ceil(tatalCount/count);&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS（3）跨域</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%883%EF%BC%89%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（3）跨域/</id>
+    <published>2016-12-07T02:22:43.000Z</published>
+    <updated>2016-12-07T04:26:43.408Z</updated>
+    
+    <content type="html"><![CDATA[<p>跨域几乎在前端开发总会遇到的一个东西。<br>自主开发选用：CORS（跨域资源共享）<br>第三方API仅仅提供获取数据的get请求，且不支持CORS，选用：JSONP<br>本文由于采用豆瓣第三方API，故采用JSONP方式；且不支持回调函数 mod.func带<strong> . </strong>方式，故自己写JSONP，作为Angular一个组件Service<br><a id="more"></a></p>
+<hr>
+<h3 id="自定义JSONP步骤"><a href="#自定义JSONP步骤" class="headerlink" title="自定义JSONP步骤"></a>自定义JSONP步骤</h3><ol>
+<li>挂载回调函数<br>将回调函数挂载到window对象上，供回调；函数名称保持唯一。</li>
+<li>处理URL普通参数<br>将传入的参数进行处理，拼接到URL中。如：?key1=value1&amp;key2&amp;value2</li>
+<li>写入回调函数URL参数<br>将回调函数作为参数，写入URL中。如：&amp;callback=函数名</li>
+<li><p>创建script标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.createElement(&apos;script&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>放入script到页面上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.body.appendChild(element);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="代码实例-写入自值型函数中"><a href="#代码实例-写入自值型函数中" class="headerlink" title="代码实例(写入自值型函数中)"></a>代码实例(写入自值型函数中)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	var http = angular.module(&apos;moviecat.services.http&apos;,[]);</div><div class="line">	http.service(&apos;HttpService&apos;,[&apos;$window&apos;,&apos;$document&apos;,function($window,$document)&#123;</div><div class="line">		this.jsonp = function(url,data,callback)&#123;</div><div class="line">	        /*1.0 挂载回调函数*/</div><div class="line">	        var cbFuncName = &quot;cb_func_&quot; + Math.round().toString().replace(&apos;.&apos;,&apos;&apos;);</div><div class="line">	        $window[cbFuncName] = callback;</div><div class="line">	        /*2.0 处理URL普通参数*/</div><div class="line">	        var queryString = url.indexOf(&apos;?&apos;) == &apos;-1&apos;?&quot;?&quot;:&quot;&amp;&quot;;</div><div class="line">	        for(key in data)&#123;</div><div class="line">	        	queryString += (key + &quot;=&quot; + data[key] + &quot;&amp;&quot;);</div><div class="line">	        &#125;</div><div class="line">	        /*3.0 回调函数URL参数写入*/</div><div class="line">	        queryString += (&quot;callback=&quot; + cbFuncName);</div><div class="line">	        /*4.0 创建script标签*/</div><div class="line">	        var scriptElement = $document[0].createElement(&apos;script&apos;);</div><div class="line">	        scriptElement.src = url + queryString;</div><div class="line">	        /*5.0 将script放入页面*/			</div><div class="line">	        $document[0].body.appendChild(scriptElement);</div><div class="line">		&#125;;</div><div class="line">	&#125;]);</div><div class="line">	</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;跨域几乎在前端开发总会遇到的一个东西。&lt;br&gt;自主开发选用：CORS（跨域资源共享）&lt;br&gt;第三方API仅仅提供获取数据的get请求，且不支持CORS，选用：JSONP&lt;br&gt;本文由于采用豆瓣第三方API，故采用JSONP方式；且不支持回调函数 mod.func带&lt;strong&gt; . &lt;/strong&gt;方式，故自己写JSONP，作为Angular一个组件Service&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS（2）设计路由和基本页面</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%882%EF%BC%89%E8%AE%BE%E8%AE%A1%E8%B7%AF%E7%94%B1%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（2）设计路由和基本页面/</id>
+    <published>2016-12-07T02:22:29.000Z</published>
+    <updated>2016-12-07T03:52:04.399Z</updated>
+    
+    <content type="html"><![CDATA[<p>Angular路由和基本页面设计<br><a id="more"></a></p>
+<hr>
+<h4 id="Html部分"><a href="#Html部分" class="headerlink" title="Html部分"></a>Html部分</h4><ul>
+<li><p>引入css和js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../node_modules/bootstrap/dist/css/bootstrap.min.css&quot;&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;app.css&quot;&gt;</div><div class="line">&lt;script src=&quot;../node_modules/angular/angular.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../node_modules/angular-route/angular-route.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../node_modules/angular-loader/angular-loader.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;components/autofocus.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;components/http.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;movie_list/controller.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>页面布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;nav class=&quot;navbar navbar-inverse navbar-fixed-top&quot; role=&quot;navigation&quot;&gt;</div><div class="line">    &lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line">        &lt;div class=&quot;navbar-header&quot;&gt;</div><div class="line">            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbar&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;navbar&quot;&gt;</div><div class="line">                &lt;span class=&quot;sr-only&quot;&gt;豆瓣电影&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;/button&gt;</div><div class="line">            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;豆瓣电影&lt;/a&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div id=&quot;navbar&quot; class=&quot;navbar-collapse collapse&quot;&gt;</div><div class="line">            &lt;form class=&quot;navbar-form navbar-right&quot;&gt;</div><div class="line">                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search...&quot;&gt;</div><div class="line">            &lt;/form&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">&lt;div class=&quot;container-fluid&quot;&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div class=&quot;col-sm-3 col-md-2 sidebar&quot;&gt;</div><div class="line">            &lt;ul class=&quot;nav nav-sidebar&quot;&gt;</div><div class="line">            	&lt;!-- 导航路由 --&gt;</div><div class="line">                &lt;li auto-focus class=&quot;active&quot;&gt;&lt;a href=&quot;#/in_theaters/1&quot;&gt;正在热映&lt;/a&gt;&lt;/li&gt;</div><div class="line">                &lt;li auto-focus&gt;&lt;a href=&quot;#/coming_soon/1&quot;&gt;即将上映&lt;/a&gt;&lt;/li&gt;</div><div class="line">                &lt;li auto-focus&gt;&lt;a href=&quot;#/top250/1&quot;&gt;TOP250&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main&quot; ng-view&gt;</div><div class="line">            </div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意</p>
+<ul>
+<li>Html或Body标签写入：ng-app=”项目名称”，建议一个项目只出现一次ng-app</li>
+<li><p>Html写入路由形式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;li auto-focus class=&quot;active&quot;&gt;&lt;a href=&quot;#/in_theaters/1&quot;&gt;正在热映&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li auto-focus&gt;&lt;a href=&quot;#/coming_soon/1&quot;&gt;即将上映&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;li auto-focus&gt;&lt;a href=&quot;#/top250/1&quot;&gt;TOP250&lt;/a&gt;&lt;/li&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>载入视图的地方写入ng-view</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main&quot; ng-view&gt;</div><div class="line">    </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h4><ul>
+<li><p>定义主模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>写入依赖项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[&apos;依赖1&apos;,&apos;依赖2&apos;,...]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置部分路由（其余情况），注入参数方式，方便压缩混淆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">模块实例.config([&apos;$routeProvider&apos;,function($routeProvider)&#123;</div><div class="line">	$routeProvider.otherwise(&#123;redirectTo:&apos;目标路由&apos;&#125;);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;moviecat&apos;, [</div><div class="line">	&apos;ngRoute&apos;,</div><div class="line">	&apos;moviecat.movie_list&apos;,</div><div class="line">	&apos;moviecat.directives.autofocus&apos;</div><div class="line">]).config([&apos;$routeProvider&apos;, function($routeProvider) &#123;</div><div class="line">	//其余情况</div><div class="line">	$routeProvider.otherwise(&#123; redirectTo: &apos;/in_theaters/1&apos; &#125;);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Angular路由和基本页面设计&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS（1）项目结构</title>
+    <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%881%EF%BC%89%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"/>
+    <id>http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/</id>
+    <published>2016-12-07T02:22:11.000Z</published>
+    <updated>2016-12-07T03:35:52.904Z</updated>
+    
+    <content type="html"><![CDATA[<p>看某培训机构视频，整理笔记。方便以后查阅。<br>项目结构进行简单介绍<br><a id="more"></a></p>
+<hr>
+<h4 id="项目依赖包"><a href="#项目依赖包" class="headerlink" title="项目依赖包"></a>项目依赖包</h4><ul>
+<li><p>angular（angular基础包版本1.5.0）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular@1.5.0 --save</div></pre></td></tr></table></figure>
+<p><strong> –save-dev </strong>保存仅保存到本地测试环境（自动化场景）<br><strong> –sve </strong> 保存到本项目环境（生产+测试）</p>
+</li>
+<li><p>angular-loader（载入模块）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular-loader --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>angular-route（路由模块）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular-route --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>bootstrap （h5 + c3）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install bootstrap --save</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><ul>
+<li>项目名称001<ul>
+<li>App</li>
+<li>components (自定义组件)</li>
+<li>_001 (模块名称)<ul>
+<li>_001Controller.js</li>
+<li>view.html</li>
+</ul>
+</li>
+<li>_002<ul>
+<li>_002Controller.js</li>
+<li>view.html</li>
+</ul>
+</li>
+<li>movie_list (模块名称)<ul>
+<li>controller.js (控制器)</li>
+<li>view.html (视图)</li>
+</ul>
+</li>
+<li>app.js (主js)</li>
+<li>app.css (主css)</li>
+<li>index.html (主Html或入口文件)</li>
+<li>node_modules (npm包)</li>
+<li>package.json (配置文件)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;看某培训机构视频，整理笔记。方便以后查阅。&lt;br&gt;项目结构进行简单介绍&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
   
   <entry>
     <title>生成器模式(Builder)</title>

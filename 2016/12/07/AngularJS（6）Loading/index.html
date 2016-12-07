@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git pro读书笔记-Git基础(1) | 步子的学习笔记</title>
+  <title>AngularJS（6）Loading | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git基本操作">
+  <meta name="description" content="页面请求数据时候，为了用户体验，会加入加载数据的动画。本篇记录如何加入css3的loading动画。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git pro读书笔记-Git基础(1)">
-<meta property="og:url" content="http://blog.step520.com/2016/12/05/git-pro读书笔记-Git基础-1/index.html">
+<meta property="og:title" content="AngularJS（6）Loading">
+<meta property="og:url" content="http://blog.step520.com/2016/12/07/AngularJS（6）Loading/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="Git基本操作">
-<meta property="og:updated_time" content="2016-12-05T14:02:01.481Z">
+<meta property="og:description" content="页面请求数据时候，为了用户体验，会加入加载数据的动画。本篇记录如何加入css3的loading动画。">
+<meta property="og:updated_time" content="2016-12-07T04:39:10.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git pro读书笔记-Git基础(1)">
-<meta name="twitter:description" content="Git基本操作">
+<meta name="twitter:title" content="AngularJS（6）Loading">
+<meta name="twitter:description" content="页面请求数据时候，为了用户体验，会加入加载数据的动画。本篇记录如何加入css3的loading动画。">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -67,12 +67,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-git-pro读书笔记-Git基础-1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-AngularJS（6）Loading" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/05/git-pro读书笔记-Git基础-1/" class="article-date">
-  <time datetime="2016-12-05T07:57:47.000Z" itemprop="datePublished">2016-12-05</time>
+    <a href="/2016/12/07/AngularJS（6）Loading/" class="article-date">
+  <time datetime="2016-12-07T04:29:20.000Z" itemprop="datePublished">2016-12-07</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -81,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git pro读书笔记-Git基础(1)
+      AngularJS（6）Loading
     </h1>
   
 
@@ -89,63 +93,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Git基本操作<br><a id="more"></a></p>
-<h4 id="获取git仓库"><a href="#获取git仓库" class="headerlink" title="获取git仓库"></a>获取git仓库</h4><ol>
-<li><p>在当前目录中初始化仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git add *</div><div class="line">$ git add LICENSE</div><div class="line">$ git commit -m &quot;initial project version&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>克隆已有仓库</p>
+        <p>页面请求数据时候，为了用户体验，会加入加载数据的动画。<br>本篇记录如何加入css3的loading动画。<br><a id="more"></a></p>
+<hr>
+<h3 id="搜索loading-css3"><a href="#搜索loading-css3" class="headerlink" title="搜索loading css3"></a>搜索loading css3</h3><ul>
+<li><a href="http://tobiasahlin.com/spinkit/" target="_blank" rel="external">loading</a></li>
+<li>选择一款自己喜欢的loading</li>
+<li><p>复制css和html到项目中</p>
 <ul>
-<li><p>https:// 协议</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/step/stepH5</div></pre></td></tr></table></figure>
+<li>css复制到app.css底部</li>
+<li>html复制到需要加载的html页面中<h3 id="通过AngularJS的双向数据绑定实现loading的隐藏显示"><a href="#通过AngularJS的双向数据绑定实现loading的隐藏显示" class="headerlink" title="通过AngularJS的双向数据绑定实现loading的隐藏显示"></a>通过AngularJS的双向数据绑定实现loading的隐藏显示</h3></li>
+<li><p>加入遮罩层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">   &lt;!-- html --&gt;</div><div class="line">&lt;div class=&quot;mask&quot; ng-if=&quot;loading&quot;&gt;</div><div class="line">    &lt;div class=&quot;spinner&quot;&gt;</div><div class="line">        &lt;div class=&quot;dot1&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;dot2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;!-- css --&gt;</div><div class="line">.mask&#123;</div><div class="line">	position: fixed;</div><div class="line">	top: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	left: 0;</div><div class="line">	background-color:rgba(0,0,0,.4);</div><div class="line">	z-index: 2000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>SSH 协议</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:用户名/项目名.git</div></pre></td></tr></table></figure>
+<li><p>赋值$scope.loading</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$scope.loading = true;</div><div class="line"></div><div class="line">HttpService.jsonp(&apos;http://api.douban.com/v2/movie/&apos; + $routeParams.category, &#123; start: start, count: count &#125;, function(data) &#123;</div><div class="line">    $scope.loading = false;</div><div class="line">    ...</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用loading(ng-if=”loading”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;mask&quot; ng-if=&quot;loading&quot;&gt;</div><div class="line">    &lt;div class=&quot;spinner&quot;&gt;</div><div class="line">        &lt;div class=&quot;dot1&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;dot2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ol>
-<h4 id="记录每次刚更新到仓库"><a href="#记录每次刚更新到仓库" class="headerlink" title="记录每次刚更新到仓库"></a>记录每次刚更新到仓库</h4><ol>
-<li><p>基本操作（已修改-&gt;已暂存-&gt;已提交）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add *</div><div class="line">$ git commit -m &quot;提交描述信息&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一步提交（跳过暂存区域）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -a -m &quot;提交描述信息&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一些命令</p>
-<ul>
-<li><p>查看状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
-</li>
-<li><p>状态简览</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git status -s</div><div class="line">OR</div><div class="line">$ git status --short</div></pre></td></tr></table></figure>
-</li>
-<li><p>比较改动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">工作目录暂存区域比较(简单来说就是工作目录的更改)：</div><div class="line">$ git diff</div><div class="line">已暂存将要提交的内容（add后准备commit的内容）：</div><div class="line">$ git diff cached</div></pre></td></tr></table></figure>
-</li>
 </ul>
-</li>
-<li><p>移除和移动</p>
-<ul>
-<li><p>移除(工作移除 + 暂存区移除)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">工作目录移除：</div><div class="line">$ rm 文件名称</div><div class="line">暂存区移除：</div><div class="line">$ git rm 文件名称</div></pre></td></tr></table></figure>
-</li>
-<li><p>移动（实现重命名）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv 待修改文件的名称 需要修改的名称</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2016/12/05/git-pro读书笔记-Git基础-1/" data-id="ciweg3okl000qnww0msd9sy24" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2016/12/07/AngularJS（6）Loading/" data-id="ciweg3okd000jnww0gwc84tit" class="article-share-link">分享</a>
       
-        <a href="http://blog.step520.com/2016/12/05/git-pro读书笔记-Git基础-1/#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://blog.step520.com/2016/12/07/AngularJS（6）Loading/#ds-thread" class="article-comment-link">留言</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
 
     </footer>
   </div>
@@ -153,19 +132,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/05/git-pro读书笔记-Git分支-2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          git pro读书笔记-Git分支(2)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/05/Hexo在GitHub搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/12/07/AngularJS（5）导航焦点自动切换/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Hexo在GitHub搭建博客</div>
+      <div class="article-nav-title">AngularJS（5）导航焦点自动切换</div>
     </a>
   
 </nav>
@@ -175,7 +145,7 @@
 
       <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/12/05/git-pro读书笔记-Git基础-1/" data-title="git pro读书笔记-Git基础(1)" data-url="http://blog.step520.com/2016/12/05/git-pro读书笔记-Git基础-1/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/07/AngularJS（6）Loading/" data-title="AngularJS（6）Loading" data-url="http://blog.step520.com/2016/12/07/AngularJS（6）Loading/"></div>
 	<!-- 多说评论框 end -->
 </div>
 

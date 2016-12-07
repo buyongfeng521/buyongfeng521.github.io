@@ -3,33 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>About Me | 步子的学习笔记</title>
+  <title>AngularJS（1）项目结构 | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介
-名称：步子，网络小菜
-QQ：849001270
-微信：bu890410
-邮箱：yongfengbu@gmail.com
-技术方向：主攻后端（dotnet，python，node），辅助前端（html + css + js，h5 + c3，angular）">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://blog.step520.com/about/index.html">
+  <meta name="description" content="看某培训机构视频，整理笔记。方便以后查阅。项目结构进行简单介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS（1）项目结构">
+<meta property="og:url" content="http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="简介
-名称：步子，网络小菜
-QQ：849001270
-微信：bu890410
-邮箱：yongfengbu@gmail.com
-技术方向：主攻后端（dotnet，python，node），辅助前端（html + css + js，h5 + c3，angular）">
-<meta property="og:updated_time" content="2016-12-06T03:23:15.589Z">
+<meta property="og:description" content="看某培训机构视频，整理笔记。方便以后查阅。项目结构进行简单介绍">
+<meta property="og:updated_time" content="2016-12-07T03:35:52.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="简介
-名称：步子，网络小菜
-QQ：849001270
-微信：bu890410
-邮箱：yongfengbu@gmail.com
-技术方向：主攻后端（dotnet，python，node），辅助前端（html + css + js，h5 + c3，angular）">
+<meta name="twitter:title" content="AngularJS（1）项目结构">
+<meta name="twitter:description" content="看某培训机构视频，整理笔记。方便以后查阅。项目结构进行简单介绍">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -82,12 +67,16 @@ QQ：849001270
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-AngularJS（1）项目结构" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/about/index.html" class="article-date">
-  <time datetime="2016-12-06T03:00:34.000Z" itemprop="datePublished">2016-12-06</time>
+    <a href="/2016/12/07/AngularJS（1）项目结构/" class="article-date">
+  <time datetime="2016-12-07T02:22:11.000Z" itemprop="datePublished">2016-12-07</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -96,7 +85,7 @@ QQ：849001270
         
   
     <h1 class="article-title" itemprop="name">
-      About Me
+      AngularJS（1）项目结构
     </h1>
   
 
@@ -104,33 +93,91 @@ QQ：849001270
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>名称：步子，网络小菜</li>
-<li>QQ：849001270</li>
-<li>微信：bu890410</li>
-<li>邮箱：yongfengbu@gmail.com</li>
-<li>技术方向：主攻后端（dotnet，python，node），辅助前端（html + css + js，h5 + c3，angular）</li>
+        <p>看某培训机构视频，整理笔记。方便以后查阅。<br>项目结构进行简单介绍<br><a id="more"></a></p>
+<hr>
+<h4 id="项目依赖包"><a href="#项目依赖包" class="headerlink" title="项目依赖包"></a>项目依赖包</h4><ul>
+<li><p>angular（angular基础包版本1.5.0）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular@1.5.0 --save</div></pre></td></tr></table></figure>
+<p><strong> –save-dev </strong>保存仅保存到本地测试环境（自动化场景）<br><strong> –sve </strong> 保存到本项目环境（生产+测试）</p>
+</li>
+<li><p>angular-loader（载入模块）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular-loader --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>angular-route（路由模块）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install angular-route --save</div></pre></td></tr></table></figure>
+</li>
+<li><p>bootstrap （h5 + c3）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install bootstrap --save</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><ul>
+<li>项目名称001<ul>
+<li>App</li>
+<li>components (自定义组件)</li>
+<li>_001 (模块名称)<ul>
+<li>_001Controller.js</li>
+<li>view.html</li>
+</ul>
+</li>
+<li>_002<ul>
+<li>_002Controller.js</li>
+<li>view.html</li>
+</ul>
+</li>
+<li>movie_list (模块名称)<ul>
+<li>controller.js (控制器)</li>
+<li>view.html (视图)</li>
+</ul>
+</li>
+<li>app.js (主js)</li>
+<li>app.css (主css)</li>
+<li>index.html (主Html或入口文件)</li>
+<li>node_modules (npm包)</li>
+<li>package.json (配置文件)</li>
+</ul>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/about/index.html" data-id="ciweg3ojd0001nww0jopp1sr7" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/" data-id="ciweg3oje0002nww0p5fyfrhz" class="article-share-link">分享</a>
       
-        <a href="http://blog.step520.com/about/index.html#ds-thread" class="article-comment-link">留言</a>
+        <a href="http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/#ds-thread" class="article-comment-link">留言</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/12/07/AngularJS（2）设计路由和基本页面/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          AngularJS（2）设计路由和基本页面
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/05/生成器模式-Builder/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">生成器模式(Builder)</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
       <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="about/index.html" data-title="About Me" data-url="http://blog.step520.com/about/index.html"></div>
+	<div class="ds-thread" data-thread-key="2016/12/07/AngularJS（1）项目结构/" data-title="AngularJS（1）项目结构" data-url="http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/"></div>
 	<!-- 多说评论框 end -->
 </div>
 
