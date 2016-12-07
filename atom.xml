@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.step520.com/"/>
-  <updated>2016-12-07T06:36:13.212Z</updated>
+  <updated>2016-12-07T06:39:03.747Z</updated>
   <id>http://blog.step520.com/</id>
   
   <author>
@@ -20,18 +20,20 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%886%EF%BC%89Loading/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（6）Loading/</id>
     <published>2016-12-07T04:29:20.000Z</published>
-    <updated>2016-12-07T06:36:13.212Z</updated>
+    <updated>2016-12-07T06:39:03.747Z</updated>
     
     <content type="html"><![CDATA[<p>页面请求数据时候，为了用户体验，会加入加载数据的动画。<br>本篇记录如何加入css3的loading动画。<br><a id="more"></a></p>
 <hr>
 <h3 id="搜索loading-css3"><a href="#搜索loading-css3" class="headerlink" title="搜索loading css3"></a>搜索loading css3</h3><ul>
-<li><a href="http://tobiasahlin.com/spinkit/" target="_blank" rel="external">loading</a></li>
+<li><a href="http://tobiasahlin.com/spinkit/" target="_blank" rel="external">Loading CSS网址</a></li>
 <li>选择一款自己喜欢的loading</li>
 <li>复制css和html到项目中<ul>
 <li>css复制到app.css底部</li>
-<li>html复制到需要加载的html页面中<h3 id="通过AngularJS的双向数据绑定实现loading的隐藏显示"><a href="#通过AngularJS的双向数据绑定实现loading的隐藏显示" class="headerlink" title="通过AngularJS的双向数据绑定实现loading的隐藏显示"></a>通过AngularJS的双向数据绑定实现loading的隐藏显示</h3></li>
+<li>html复制到需要加载的html页面中</li>
 </ul>
 </li>
+</ul>
+<h3 id="通过AngularJS的双向数据绑定实现loading的隐藏显示"><a href="#通过AngularJS的双向数据绑定实现loading的隐藏显示" class="headerlink" title="通过AngularJS的双向数据绑定实现loading的隐藏显示"></a>通过AngularJS的双向数据绑定实现loading的隐藏显示</h3><ul>
 <li><p>加入遮罩层</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">   &lt;!-- html --&gt;</div><div class="line">&lt;div class=&quot;mask&quot; ng-if=&quot;loading&quot;&gt;</div><div class="line">    &lt;div class=&quot;spinner&quot;&gt;</div><div class="line">        &lt;div class=&quot;dot1&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;dot2&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;!-- css --&gt;</div><div class="line">.mask&#123;</div><div class="line">	position: fixed;</div><div class="line">	top: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">	left: 0;</div><div class="line">	background-color:rgba(0,0,0,.4);</div><div class="line">	z-index: 2000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -62,12 +64,12 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%885%EF%BC%89%E5%AF%BC%E8%88%AA%E7%84%A6%E7%82%B9%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/</id>
     <published>2016-12-07T02:23:07.000Z</published>
-    <updated>2016-12-07T04:28:41.115Z</updated>
+    <updated>2016-12-07T06:40:10.650Z</updated>
     
-    <content type="html"><![CDATA[<p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a><br><em>*</em> 创建指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[])</div><div class="line">.directive(&apos;指令名称-驼峰命名&apos;,[&apos;参数&apos;,function(参数)&#123;</div><div class="line">	 var path = $location.path();</div><div class="line">	 return&#123;</div><div class="line">	 	restrict:&apos;A&apos;,//类型</div><div class="line">	 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">	 		//操作</div><div class="line">	 	&#125;</div><div class="line">	 &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p><strong><em> 指令调用<br>  如果名称为 </em> homeIndex <em> 使用的时候为 </em> home-index <em>
-</em></strong> 源码</p>
-<ul>
+    <content type="html"><![CDATA[<p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a></p>
+<h3 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[])</div><div class="line">.directive(&apos;指令名称-驼峰命名&apos;,[&apos;参数&apos;,function(参数)&#123;</div><div class="line">	 var path = $location.path();</div><div class="line">	 return&#123;</div><div class="line">	 	restrict:&apos;A&apos;,//类型</div><div class="line">	 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">	 		//操作</div><div class="line">	 	&#125;</div><div class="line">	 &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+<h3 id="指令调用"><a href="#指令调用" class="headerlink" title="指令调用"></a>指令调用</h3><p>  如果名称为 <em> homeIndex </em> 使用的时候为 <em> home-index </em></p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><ul>
 <li><p>创建指令directive</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	angular.module(&apos;moviecat.directives.autofocus&apos;,[])</div><div class="line">	.directive(&apos;autoFocus&apos;,[&apos;$location&apos;,function($location)&#123;</div><div class="line">		 var path = $location.path();</div><div class="line">		 return&#123;</div><div class="line">		 	restrict:&apos;A&apos;,</div><div class="line">		 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">		 		var aLink = iElm.children().attr(&apos;href&apos;);</div><div class="line">		 		var type = aLink.replace(/#(\/.+?)\/\d+/,&apos;$1&apos;);</div><div class="line">		 		if(path.startsWith(type))&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;</div><div class="line">		 		iElm.on(&apos;click&apos;,function()&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;);</div><div class="line">		 	&#125;</div><div class="line">		 &#125;;</div><div class="line">	&#125;]);</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
 </li>
@@ -130,7 +132,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%883%EF%BC%89%E8%B7%A8%E5%9F%9F/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（3）跨域/</id>
     <published>2016-12-07T02:22:43.000Z</published>
-    <updated>2016-12-07T04:26:43.408Z</updated>
+    <updated>2016-12-07T06:42:04.469Z</updated>
     
     <content type="html"><![CDATA[<p>跨域几乎在前端开发总会遇到的一个东西。<br>自主开发选用：CORS（跨域资源共享）<br>第三方API仅仅提供获取数据的get请求，且不支持CORS，选用：JSONP<br>本文由于采用豆瓣第三方API，故采用JSONP方式；且不支持回调函数 mod.func带<strong> . </strong>方式，故自己写JSONP，作为Angular一个组件Service<br><a id="more"></a></p>
 <hr>
@@ -145,7 +147,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.body.appendChild(element);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="代码实例-写入自值型函数中"><a href="#代码实例-写入自值型函数中" class="headerlink" title="代码实例(写入自值型函数中)"></a>代码实例(写入自值型函数中)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	var http = angular.module(&apos;moviecat.services.http&apos;,[]);</div><div class="line">	http.service(&apos;HttpService&apos;,[&apos;$window&apos;,&apos;$document&apos;,function($window,$document)&#123;</div><div class="line">		this.jsonp = function(url,data,callback)&#123;</div><div class="line">	        /*1.0 挂载回调函数*/</div><div class="line">	        var cbFuncName = &quot;cb_func_&quot; + Math.round().toString().replace(&apos;.&apos;,&apos;&apos;);</div><div class="line">	        $window[cbFuncName] = callback;</div><div class="line">	        /*2.0 处理URL普通参数*/</div><div class="line">	        var queryString = url.indexOf(&apos;?&apos;) == &apos;-1&apos;?&quot;?&quot;:&quot;&amp;&quot;;</div><div class="line">	        for(key in data)&#123;</div><div class="line">	        	queryString += (key + &quot;=&quot; + data[key] + &quot;&amp;&quot;);</div><div class="line">	        &#125;</div><div class="line">	        /*3.0 回调函数URL参数写入*/</div><div class="line">	        queryString += (&quot;callback=&quot; + cbFuncName);</div><div class="line">	        /*4.0 创建script标签*/</div><div class="line">	        var scriptElement = $document[0].createElement(&apos;script&apos;);</div><div class="line">	        scriptElement.src = url + queryString;</div><div class="line">	        /*5.0 将script放入页面*/			</div><div class="line">	        $document[0].body.appendChild(scriptElement);</div><div class="line">		&#125;;</div><div class="line">	&#125;]);</div><div class="line">	</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>]]></content>
+<h3 id="代码实例-写入自值型函数中"><a href="#代码实例-写入自值型函数中" class="headerlink" title="代码实例(写入自值型函数中)"></a>代码实例(写入自值型函数中)</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	var http = angular.module(&apos;moviecat.services.http&apos;,[]);</div><div class="line">	http.service(&apos;HttpService&apos;,[&apos;$window&apos;,&apos;$document&apos;,function($window,$document)&#123;</div><div class="line">		this.jsonp = function(url,data,callback)&#123;</div><div class="line">	        /*1.0 挂载回调函数*/</div><div class="line">	        var cbFuncName = &quot;cb_func_&quot; + Math.round().toString().replace(&apos;.&apos;,&apos;&apos;);</div><div class="line">	        $window[cbFuncName] = callback;</div><div class="line">	        /*2.0 处理URL普通参数*/</div><div class="line">	        var queryString = url.indexOf(&apos;?&apos;) == &apos;-1&apos;?&quot;?&quot;:&quot;&amp;&quot;;</div><div class="line">	        for(key in data)&#123;</div><div class="line">	        	queryString += (key + &quot;=&quot; + data[key] + &quot;&amp;&quot;);</div><div class="line">	        &#125;</div><div class="line">	        /*3.0 回调函数URL参数写入*/</div><div class="line">	        queryString += (&quot;callback=&quot; + cbFuncName);</div><div class="line">	        /*4.0 创建script标签*/</div><div class="line">	        var scriptElement = $document[0].createElement(&apos;script&apos;);</div><div class="line">	        scriptElement.src = url + queryString;</div><div class="line">	        /*5.0 将script放入页面*/			</div><div class="line">	        $document[0].body.appendChild(scriptElement);</div><div class="line">		&#125;;</div><div class="line">	&#125;]);</div><div class="line">	</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
+</code></pre>]]></content>
     
     <summary type="html">
     

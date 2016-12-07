@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
 <meta property="og:description" content="Angular写一个指令，点击时候，自动切换焦点。">
-<meta property="og:updated_time" content="2016-12-07T04:28:41.115Z">
+<meta property="og:updated_time" content="2016-12-07T06:40:10.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS（5）导航焦点自动切换">
 <meta name="twitter:description" content="Angular写一个指令，点击时候，自动切换焦点。">
@@ -93,10 +93,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a><br><em>*</em> 创建指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[])</div><div class="line">.directive(&apos;指令名称-驼峰命名&apos;,[&apos;参数&apos;,function(参数)&#123;</div><div class="line">	 var path = $location.path();</div><div class="line">	 return&#123;</div><div class="line">	 	restrict:&apos;A&apos;,//类型</div><div class="line">	 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">	 		//操作</div><div class="line">	 	&#125;</div><div class="line">	 &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p><strong><em> 指令调用<br>  如果名称为 </em> homeIndex <em> 使用的时候为 </em> home-index <em>
-</em></strong> 源码</p>
-<ul>
+        <p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a></p>
+<h3 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;模块名称&apos;,[])</div><div class="line">.directive(&apos;指令名称-驼峰命名&apos;,[&apos;参数&apos;,function(参数)&#123;</div><div class="line">	 var path = $location.path();</div><div class="line">	 return&#123;</div><div class="line">	 	restrict:&apos;A&apos;,//类型</div><div class="line">	 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">	 		//操作</div><div class="line">	 	&#125;</div><div class="line">	 &#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+<h3 id="指令调用"><a href="#指令调用" class="headerlink" title="指令调用"></a>指令调用</h3><p>  如果名称为 <em> homeIndex </em> 使用的时候为 <em> home-index </em></p>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><ul>
 <li><p>创建指令directive</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(function(angular)&#123;</div><div class="line">	angular.module(&apos;moviecat.directives.autofocus&apos;,[])</div><div class="line">	.directive(&apos;autoFocus&apos;,[&apos;$location&apos;,function($location)&#123;</div><div class="line">		 var path = $location.path();</div><div class="line">		 return&#123;</div><div class="line">		 	restrict:&apos;A&apos;,</div><div class="line">		 	link:function($scope,iElm,iAttrs,controller)&#123;</div><div class="line">		 		var aLink = iElm.children().attr(&apos;href&apos;);</div><div class="line">		 		var type = aLink.replace(/#(\/.+?)\/\d+/,&apos;$1&apos;);</div><div class="line">		 		if(path.startsWith(type))&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;</div><div class="line">		 		iElm.on(&apos;click&apos;,function()&#123;</div><div class="line">		 			iElm.parent().children().removeClass(&apos;active&apos;);</div><div class="line">		 			iElm.addClass(&apos;active&apos;);</div><div class="line">		 		&#125;);</div><div class="line">		 	&#125;</div><div class="line">		 &#125;;</div><div class="line">	&#125;]);</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
 </li>
@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/" data-id="ciwekaif200061gw0e6erh09h" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/" data-id="ciwekhtwg000bs0w0qem9uwlu" class="article-share-link">分享</a>
       
         <a href="http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/#ds-thread" class="article-comment-link">留言</a>
       
