@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.step520.com/"/>
-  <updated>2016-12-07T06:39:03.747Z</updated>
+  <updated>2016-12-08T03:13:13.657Z</updated>
   <id>http://blog.step520.com/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AngularJS（7）两种搜索实现和配置实现</title>
+    <link href="http://blog.step520.com/2016/12/08/AngularJS%EF%BC%887%EF%BC%89%E4%B8%A4%E7%A7%8D%E6%90%9C%E7%B4%A2%E5%AE%9E%E7%8E%B0%E5%92%8C%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://blog.step520.com/2016/12/08/AngularJS（7）两种搜索实现和配置实现/</id>
+    <published>2016-12-08T02:48:31.000Z</published>
+    <updated>2016-12-08T03:13:13.657Z</updated>
+    
+    <content type="html"><![CDATA[<p>两种方法实现搜索功能，普通实现和指令实现。<br>全局配置的实现（公共配置）。<br><a id="more"></a></p>
+<hr>
+<h3 id="搜索功能实现"><a href="#搜索功能实现" class="headerlink" title="搜索功能实现"></a>搜索功能实现</h3><ol>
+<li><p>普通实现（Controller）</p>
+<ul>
+<li><p>Html部分实现绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;navbar&quot; class=&quot;navbar-collapse collapse&quot;&gt;</div><div class="line">	&lt;form class=&quot;navbar-form navbar-right&quot; ng-controller=&quot;SearchController&quot; ng-submit=&quot;search()&quot;&gt;</div><div class="line">		&lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;input&quot; placeholder=&quot;Search...&quot;&gt;</div><div class="line">	&lt;/form&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>js暴露数据和方法<br>暴露<em>input</em>参数，前台输入框中的value通过ng-model进行绑定;<br>暴露<em>search</em>方法，前台form回车触发通过ng-submit进行绑定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.controller(&apos;SearchController&apos;,[&apos;$scope&apos;,&apos;$route&apos;,function($scope,$route)&#123;</div><div class="line">	$scope.input = &quot;&quot;;</div><div class="line"></div><div class="line">	$scope.search = function()&#123;</div><div class="line">		console.log($scope.input);</div><div class="line">		$route.updateParams(&#123;category:&apos;search&apos;,q:$scope.input&#125;);</div><div class="line">	&#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>指令实现</p>
+<ul>
+<li><p>创建指令<br>创建一个js文件：search.js；<br>通过directive创建指令；<br>return返回指令内容；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(function(angular) &#123;</div><div class="line">    angular.module(&apos;moviecat.directives.search&apos;, [])</div><div class="line">        .directive(&apos;search&apos;, [&apos;$location&apos;, &apos;$route&apos;, function($location, $route) &#123;</div><div class="line">            return &#123;</div><div class="line">                scope: &#123;&#125;,</div><div class="line">                restrict: &apos;AE&apos;,</div><div class="line">                template: &apos;&lt;div id=&quot;navbar&quot; class=&quot;navbar-collapse collapse&quot;&gt;&lt;form class=&quot;navbar-form navbar-right&quot; ng-submit=&quot;search()&quot;&gt;&lt;input type=&quot;text&quot; class=&quot;form-control&quot; ng-model=&quot;text&quot; placeholder=&quot;Search...&quot;&gt;&lt;/form&gt;&lt;/div&gt;&apos;,</div><div class="line">                replact: true,</div><div class="line">                link: function($scope, iElm, iAttrs, controller) &#123;</div><div class="line">                    $scope.text = &quot;&quot;;</div><div class="line">                    $scope.search = function() &#123;</div><div class="line">                        $route.updateParams(&#123; category: &apos;search&apos;, q: $scope.text &#125;);</div><div class="line">                    &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">        &#125;]);</div><div class="line">&#125;)(angular);</div></pre></td></tr></table></figure>
+</li>
+<li><p>引用指令<br>在入口函数或使用此指令的地方，把search指令的模块，加入依赖模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;moviecat&apos;, [</div><div class="line">    ...</div><div class="line">    &apos;search指令模块名称&apos;</div><div class="line">    ...</div><div class="line">]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用指令<br>在使用的地方直接写入标签，加入search属性即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div search&gt;&lt;/div&gt;</div><div class="line">或者</div><div class="line">&lt;search&gt;&lt;/search&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p>angular提供了constant命令进行配置常量，通过键值对写入常量。<br>通常把请求链接，页码等全局的常量写入其中，方便维护修改。</p>
+<ul>
+<li><p>创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;moviecat&apos;, [])</div><div class="line">/*为模块定义一些常量*/</div><div class="line">.constant(&apos;AppConfig&apos;, &#123;</div><div class="line">	pageSize:10,</div><div class="line">	doubanMovieApi:&apos;http://api.douban.com/v2/movie/&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用<br>在使用的地方，进行注入即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">module.controller(&apos;MovieListController&apos;, [</div><div class="line">    &apos;$scope&apos;,</div><div class="line">    ...</div><div class="line">    &apos;AppConfig&apos;,</div><div class="line">    function($scope, AppConfig) &#123;</div><div class="line">        var count = AppConfig.pageSize;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;两种方法实现搜索功能，普通实现和指令实现。&lt;br&gt;全局配置的实现（公共配置）。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
+    
+    
+      <category term="AngularJS" scheme="http://blog.step520.com/tags/AngularJS/"/>
+    
+  </entry>
   
   <entry>
     <title>AngularJS（6）Loading</title>
@@ -236,7 +294,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%881%EF%BC%89%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/</id>
     <published>2016-12-07T02:22:11.000Z</published>
-    <updated>2016-12-07T03:35:52.904Z</updated>
+    <updated>2016-12-08T02:48:58.450Z</updated>
     
     <content type="html"><![CDATA[<p>看某培训机构视频，整理笔记。方便以后查阅。<br>项目结构进行简单介绍<br><a id="more"></a></p>
 <hr>
