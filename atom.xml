@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.step520.com/"/>
-  <updated>2017-03-24T08:03:57.212Z</updated>
+  <updated>2017-03-24T08:15:47.893Z</updated>
   <id>http://blog.step520.com/</id>
   
   <author>
@@ -20,11 +20,32 @@
     <link href="http://blog.step520.com/2017/03/24/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-Proxy/"/>
     <id>http://blog.step520.com/2017/03/24/代理模式-Proxy/</id>
     <published>2017-03-24T08:03:57.000Z</published>
-    <updated>2017-03-24T08:03:57.212Z</updated>
+    <updated>2017-03-24T08:15:47.893Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><a id="more"></a>
+<p> 人们对于复杂的软件系统常常有一种处理手法，即增加一层间接层，从而对系统获得一种更为灵活、满足特定需求的解决方案。<br> 现实生活中，其实操作系统就是软件和硬件之间的代理。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在面向对象系统中，有些对象由于某种原因（比如对象创建的开销很大，或者某些操作需要安全控制，或者需要进程外的访问等），直接访问会给使用者、或者系统结构带来很多麻烦。</p>
+<ul>
+<li>如何在不失去透明操作对象的同时来管理/控制这些对象特有的复杂性？增加一层间接层是软件开发中常见的解决方式。<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><img src="https://ooo.0o0.ooo/2017/03/03/58b923d33bf06.png" alt="Proxy.png"><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3>为其他对象提供一种代理以控制对这个对象的访问。<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>外部系统（网络系统）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">interface IEmployee</div><div class="line">&#123;</div><div class="line">    decimal GetSalary();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Employee:IEmployee</div><div class="line">&#123;</div><div class="line">    public decimal GetSalary()</div><div class="line">    &#123;</div><div class="line">        //...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class EmployeeProxy:IEmployee</div><div class="line">&#123;</div><div class="line">    public EmployeeProxy()</div><div class="line">    &#123;</div><div class="line">        //SOAP对象创建的封装</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public decimal GetSalary()</div><div class="line">    &#123;</div><div class="line">        //...SOAP封装，请求网络数据</div><div class="line">        //解析网络数据</div><div class="line">        //返回C#数据结果</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public class HrSys</div><div class="line">&#123;</div><div class="line">    IEmployee emp = new EmployeeProxy();</div><div class="line">    decimal salary = emp.GetSalary();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;代理模式&quot;&gt;&lt;a href=&quot;#代理模式&quot; class=&quot;headerlink&quot; title=&quot;代理模式&quot;&gt;&lt;/a&gt;代理模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -34,11 +55,37 @@
     <link href="http://blog.step520.com/2017/03/24/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F-Flyweight/"/>
     <id>http://blog.step520.com/2017/03/24/享元模式-Flyweight/</id>
     <published>2017-03-24T08:03:47.000Z</published>
-    <updated>2017-03-24T08:03:47.590Z</updated>
+    <updated>2017-03-24T08:15:57.744Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><a id="more"></a>
+<p> 面向对象很好地解决了系统抽象性的问题，同时在大多数情况下，也不会损及系统的性能。但是，在某些特殊的应用中，由于对象的数量太大，采用面向对象会给系统带来难以承受的内存开销。比如图形应用中的图元等对象、字处理应用中的字符对象等。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 采用纯粹对象方案的问题在于大量细粒度的对象会很快充斥在系统中，从而带来很高的运行时代价——主要指内存需求方面的代价。</p>
+<p> 如何在避免大量细粒度对象问题的同时，让外部客户程序仍然能够透明地使用面向对象的方式来进行操作？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 运用共享技术有效地支持大量细粒度的对象。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/03/58b8e6ba017b7.png" alt="FlyWeight.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>面向对象很好地解决了抽象性的问题，但是作为一个运行在机器中的程序实体，我们需要考虑对象的代价问题。Flyweight设计模式主要解决面向对象的代价问题，一般不触及面向对象的抽象性问题。</p>
+</li>
+<li><p>Flyweight采用对象共享的做法来降低系统中对象的个数，从而降低细粒度对象给系统带来的内存压力。在具体实现方面，要注意对象状态的处理。</p>
+</li>
+<li><p>对象的数量太大从而导致对象内存开销加大——什么样的数量才算大？这需要我们仔细的根据具体应用情况进行评估，而不能凭空臆断。</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>Flyweight</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public class Flyweight</div><div class="line">&#123;</div><div class="line">    public char chr;</div><div class="line">    Font f;</div><div class="line">    static Hastable fontTable;</div><div class="line">    public Font CFont</div><div class="line">    &#123;</div><div class="line">        get</div><div class="line">        &#123;</div><div class="line">            return f;</div><div class="line">        &#125;</div><div class="line">        set</div><div class="line">        &#123;</div><div class="line">            if(fontTable.Keys.Exists(f))</div><div class="line">            &#123;</div><div class="line">                this.f = fontTable.Keys[f];</div><div class="line">            &#125;</div><div class="line">            else</div><div class="line">            &#123;</div><div class="line">                fontTable.Keys.Add(value);</div><div class="line">                f = value;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Font f1 = new Font(&quot;宋体&quot;);</div><div class="line">Font f2 = new Font(&quot;宋体&quot;);</div><div class="line"></div><div class="line">Flyweight fw1 = new Flyweight();</div><div class="line">fw1.chr = &apos;c&apos;;</div><div class="line">fw1.CFont = f1;</div><div class="line"></div><div class="line">Flyweight fw2 = new Flyweight();</div><div class="line">fw2.chr = &apos;c&apos;;</div><div class="line">fw2.CFont = f2;//共享f1内存</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;享元模式&quot;&gt;&lt;a href=&quot;#享元模式&quot; class=&quot;headerlink&quot; title=&quot;享元模式&quot;&gt;&lt;/a&gt;享元模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -48,11 +95,38 @@
     <link href="http://blog.step520.com/2017/03/24/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-Facade/"/>
     <id>http://blog.step520.com/2017/03/24/外观模式-Facade/</id>
     <published>2017-03-24T08:03:38.000Z</published>
-    <updated>2017-03-24T08:03:38.406Z</updated>
+    <updated>2017-03-24T08:14:11.615Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><a id="more"></a>
+<p> 假设我们需要开发一个坦克模拟系统用于模拟坦克车在各种作战环境中的行为，其中坦克系统由引擎、控制器、车轮、车身等各子系统构成。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 组件的客户（即外部接口，或客户程序）和组件中各种复杂的子系统有了过多的耦合，随着外部客户程序和各子系统的演化，这种过多的耦合面临很多变化的挑战。</p>
+<p> 如何简化外部客户程序和系统间的交互接口？如何将外部客户程序的演化和内部子系统的变化之间的依赖相互解耦？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/03/58b8d5c4581e8.png" alt="Facade.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>从客户程序的角度来看，Facade模式不仅简化了整个组件系统的接口，同时对于组件内部与外部客户程序来说，从某种程度上也达到了一种“解耦”的效果——内部子系统的任何变化不会影响到Facade接口的变化。</p>
+</li>
+<li><p>Facade设计模式更注重从架构的层次去看整个系统，而不是单个类的层次。Facade很多时候更是一种架构设计模式。</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public interface Wheel</div><div class="line">&#123;</div><div class="line">    void WActon1();</div><div class="line">    void WAction2();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public interface Engine</div><div class="line">&#123;</div><div class="line">    void EAction1();</div><div class="line">    void EAction2();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public interface Controller</div><div class="line">&#123;</div><div class="line">    void CAction1();</div><div class="line">    void CAction2();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Facade</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class Facade</div><div class="line">&#123;</div><div class="line">    Wheel[] wheels = WheelFactory.GetWheel(4);</div><div class="line">    Engine[] engines = EngineFactory.GetEngine(2);</div><div class="line">    Controller controller = Controller.GetController(1);</div><div class="line"></div><div class="line">    public void Run()</div><div class="line">    &#123;</div><div class="line">        wheels[0].WAction1();</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void Stop()</div><div class="line">    &#123;</div><div class="line">        wheels[0].SAction1();</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//不必关心Wheel和Engine等的具体实现，只需关注Facade</div><div class="line">Facade facade = new Facade();</div><div class="line">facade.Run();</div><div class="line">facade.Stop();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;外观模式&quot;&gt;&lt;a href=&quot;#外观模式&quot; class=&quot;headerlink&quot; title=&quot;外观模式&quot;&gt;&lt;/a&gt;外观模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -62,11 +136,42 @@
     <link href="http://blog.step520.com/2017/03/24/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F-Decorator/"/>
     <id>http://blog.step520.com/2017/03/24/装饰模式-Decorator/</id>
     <published>2017-03-24T08:03:13.000Z</published>
-    <updated>2017-03-24T08:03:13.899Z</updated>
+    <updated>2017-03-24T08:13:03.824Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h3><a id="more"></a>
+<p> 假如我们需要为游戏中开发一种坦克，除了各种不同的型号的坦克外，我们还希望在不同场合中为其增加以下一种或多种功能：比如红外线夜视功能，比如水陆两栖功能，比如卫星定位功能等等。<br> 如果再添加一种功能D，那么需要增加的T50子类的数量可想而知，而这只是T50这个类型，如果还有其他T70等类型，那么需要新添加的子类将不可计数。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 上述描述的问题根源在于我们“过度地使用了继承来扩展对象的功能”，由于继承为类型引入的静态特质（所谓静态特质，就是说如果想要某种功能，我们必须在编译的时候就要定义这个类，这也是强类型语言的特点。静态，就是指在编译的时候要确定的东西；动态，是指运行时确定的东西），使得这种扩展方式缺乏灵活性；并且随着子类的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀（多继承）。</p>
+<p> 如何使“对象功能的扩展”能够根据需要来动态（即运行时）地实现？同时避免“扩展功能的增多”带来的子类膨胀问题？从而使得任何“功能扩展变化”所导致的影响降为最低？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/02/58b7e7aa5bb17.png" alt="Decorator.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>通过采用组合、而非继承的手法，Decorator模式实现了在运行时（就是在客户代码Main函数里写的代码）动态地扩展对象功能的能力，而且可以根据需要扩展多个功能。避免了单独使用继承带来的“灵活性差”和“多子类衍生问题”。</p>
+</li>
+<li><p>Component类在Decorator模式中充当抽象接口的角色，不应该去实现具体的行为。而且Decorator类对于Component类应该透明——换言之Component类无需知道Decorator类，Decorator类是从外部来扩展Component类的功能。</p>
+</li>
+<li><p>Decorator类在接口上表现为Is-A：Component的继承关系，即Decorator类继承了Component类所具有的接口。但在实现上有表现为Has-A：Component的组合关系，即Decorator类又使用了另外一个Component类。我们可以使用一个或者多个Decorator对象来“装饰”一个Component对象，且装饰后的对象仍然是一个Component对象。</p>
+</li>
+<li><p>Decorator模式并非解决“多子类衍生的多继承”问题，Decorator模式，应用的要点在于解决“主体类在多个方向上的扩展功能”——是为“装饰”的含义。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3></li>
+<li><p>Tank</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public abstract class Tank</div><div class="line">&#123;</div><div class="line">    public abstract void Run();</div><div class="line">    public abstract void Stop();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class T50:Tank</div><div class="line">&#123;</div><div class="line">    public void Run()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line">    public void Stop()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>装饰</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">//装饰</div><div class="line">public abstract class Decorator:Tank</div><div class="line">&#123;</div><div class="line">    private Tank tank;</div><div class="line">    public Decorator(Tank tank)</div><div class="line">    &#123;</div><div class="line">        this.tank = tank;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        tank.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        tank.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//红外</div><div class="line">public class DecoratorA:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorA(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //红外扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //红外扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//两栖</div><div class="line">public class DecoratorB:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorB(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //两栖扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //两栖扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//卫星定位</div><div class="line">public class DecoratorC:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorB(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //卫星定位扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //卫星定位扩展功能</div><div class="line">        //...</div><div class="line">        </div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Tank tank = new T50();</div><div class="line">DecoratorA da = new DecoratorA(tank);//红外</div><div class="line">//da.Run();</div><div class="line">//da.Stop();</div><div class="line">DecoratorB db = new DecoratorB(da);//红外，两栖</div><div class="line">DecoragorC dc = new DecoratorC(db);//红外，两栖，卫星定位</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;装饰模式&quot;&gt;&lt;a href=&quot;#装饰模式&quot; class=&quot;headerlink&quot; title=&quot;装饰模式&quot;&gt;&lt;/a&gt;装饰模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -76,11 +181,39 @@
     <link href="http://blog.step520.com/2017/03/24/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-Composite/"/>
     <id>http://blog.step520.com/2017/03/24/组合模式-Composite/</id>
     <published>2017-03-24T08:02:57.000Z</published>
-    <updated>2017-03-24T08:02:57.607Z</updated>
+    <updated>2017-03-24T08:12:25.336Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><a id="more"></a>
+<p> 在面向对象系统中，我们常会遇到一类具有“容器”特征的对象——即它们在充当对象的同时，又是其他对象的容器</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 客户代码过多地依赖于对象容器复杂的内部实现结构，对象容器内部实现结构（而非抽象接口）的变化将引起客户代码的频繁变化，带来了代码的维护性、扩展性等弊端。</p>
+<p> 如何将“客户代码与复杂的对象容器结构”解耦？让对象容器自己来实现自身的复杂结构，从而使得客户代码就像处理简单对象一样来处理复杂的对象容器？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 将对象组合成树形结构以表示“部分-整体”的层次结构。Composite使得用户对单个对象和组合对象的使用具有一致性。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/02/58b7d144c7063.png" alt="Composite.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>Composite模式采用树形结构来实现普遍存在的对象容器，从而将“一对多”的关系转化为“一对一”的关系，使得客户代码可以一致地处理对象和对象容器，无需关心处理的是单个的对象，还是组合的对象容器。</p>
+</li>
+<li><p>将“客户代码与复杂的对象容器结构”解耦是Composite模式的核心思想，解耦之后，客户代码将与纯粹的抽象接口——而非对象容器的复杂内部实现结构——发生依赖关系，从而更能“应对变化”。</p>
+</li>
+<li><p>Composite模式中，是将“Add和Remove等和对象容器相关的方法”定义在“表示抽象对象的Component类”中，还是将其定义在“表示对象容器的Composite类”中，是一个关乎“透明性”和“安全性”的两难问题，需要仔细权衡。这里有可能违背面向对象的“单一职责原则”，但是对于这种特殊结构，这又是必须付出的代价。ASP.Net控件的实现在这方面为我们提供了一个很好的示范。</p>
+</li>
+<li><p>Composite模式在具体实现中，可以让父对象中的子对象反向追朔；如果父对象有频繁的遍历需求，可使用缓存技巧来改善效率。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3></li>
+<li><p>组合模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">public abstract class IBox</div><div class="line">&#123;</div><div class="line">    public abstract void Process();</div><div class="line">    public abstract void Add(IBox box);</div><div class="line">    public abstract void Remove(IBox box);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class SingleBox:IBox</div><div class="line">&#123;</div><div class="line">    public override void Process()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line">    public override void Add(IBox box)&#123;&#125;</div><div class="line">    public override void Remove(IBox box)&#123;&#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class ContainerBox:IBox</div><div class="line">&#123;</div><div class="line">    ArrayList list = null;</div><div class="line">    public override void Add(IBox box)</div><div class="line">    &#123;</div><div class="line">        if(list == null)</div><div class="line">        &#123;</div><div class="line">            list = new ArrayList();</div><div class="line">        &#125;</div><div class="line">        list.Add(box);</div><div class="line">    &#125;</div><div class="line">    public override void Remove(IBox box)</div><div class="line">    &#123;</div><div class="line">        if(list == null)</div><div class="line">        &#123;</div><div class="line">            throw new exception;</div><div class="line">        &#125;</div><div class="line">        list.remove(box);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void Process()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">        if(list != null)</div><div class="line">        &#123;</div><div class="line">            foreach(IBox box in list)</div><div class="line">            &#123;</div><div class="line">                box.process();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">IBox box = boxFactory.getBox();</div><div class="line">//box.Add(new SingleBox());</div><div class="line">//...</div><div class="line">box.Process();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;组合模式&quot;&gt;&lt;a href=&quot;#组合模式&quot; class=&quot;headerlink&quot; title=&quot;组合模式&quot;&gt;&lt;/a&gt;组合模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -90,11 +223,37 @@
     <link href="http://blog.step520.com/2017/03/24/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F-Bridge/"/>
     <id>http://blog.step520.com/2017/03/24/桥接模式-Bridge/</id>
     <published>2017-03-24T08:02:44.000Z</published>
-    <updated>2017-03-24T08:02:44.435Z</updated>
+    <updated>2017-03-24T08:08:19.689Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><a id="more"></a>
+<p> 假如我们需要开发一个同时支持PC和手机的坦克游戏，游戏在PC和手机上功能都一样，都有同样的类型，面临同样的功能需求变化，比如坦克可能有很多种不同的型号：T50，T75，T90……<br> 但是PC和手机上的图形绘制、声效、操作等实现完全不同……<br> 面临两个纬度的变化…</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 思考上述问题的症结：事实上由于Tank类型的固有逻辑，使得Tank类型具有了两个变化的维度——一个变化的维度为“平台的变化”，一个变化的维度为“型号的变化”。</p>
+<p> 如何应对这种“多维度的变化”？如何利用面向对象技术来使得Tank类型可以轻松地沿着“平台”和“型号”两个方向变化，而不引入额外的复杂度？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 将抽象部分与实现部分分离，使它们都可以独立地变化。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/02/58b78d2d9d106.png" alt="Brige.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>Bridge模式使用“对象间的组合关系”解耦了抽象和实现之间固有的绑定关系，使得抽象（Tank的型号）和实现（不同的平台）可以沿着格子的维度来变化。</li>
+<li>所谓抽象和实现沿着各自维度的变化，即“子类化”它们（比如不同的Tank型号子类，和不同的平台子类），得到各个子类之后，便可以任意组合它们，从而获得不同平台上的不同型号。</li>
+<li>Bridge模式有时候类似于多继承方案，但是多继承方案往往违背单一职责原则（即一个类只有一个变化的原因），复用性比较差。Bridge模式是比多继承方案更好的解决方法。<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3></li>
+<li><p>Tank</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">//Tank</div><div class="line">public abstract class Tank</div><div class="line">&#123;</div><div class="line">    protected TankPlatformImplementation tankImplementation;</div><div class="line">    public Tank(TankPlatformImplementation tankImplementation)</div><div class="line">    &#123;</div><div class="line">        this.tankImplementation = tankImplementation;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public TankPlatformImplementation TankImplementation</div><div class="line">    &#123;</div><div class="line">        get</div><div class="line">        &#123;</div><div class="line">            return this.tankImplementation</div><div class="line">        &#125;</div><div class="line">        set</div><div class="line">        &#123;</div><div class="line">            this.tankImplementation = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public abstract void Run();</div><div class="line">    public abstract void Stop();</div><div class="line">&#125;</div><div class="line">public class T50:Tank</div><div class="line">&#123;</div><div class="line">    public T50(TankPlatformImplementation tankImplementation):base(tankImplementation)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        tankImplementation.Point(new Point(1,2));</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        tankImplementation.Point(new Point(0,0));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class T90:Tank</div><div class="line">&#123;</div><div class="line">    public T90(TankPlatformImplementation tankImplementation):base(tankImplementation)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        tankImplementation.Point(new Point(1,2));</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        tankImplementation.Point(new Point(0,0));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>TankPlatformImplementation（平台实现）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public abstract class TankPlatformImplementation</div><div class="line">&#123;</div><div class="line">    public abstract void PointTo(Point point);</div><div class="line">&#125;</div><div class="line">public class PCTankImplementation:TankPlatformImplementation</div><div class="line">&#123;</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line">public class MobileTankImplementation:TankPlatformImplementation</div><div class="line">&#123;</div><div class="line">    //...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//PC端的T50坦克</div><div class="line">TankPlatformImplementation tankImplementation = new PCTankImplementation();</div><div class="line">T50 tank = new T50(tankImplementation);</div><div class="line">//Mobile端的T90坦克</div><div class="line">MobileTankImplementation tankImplementation = new MobileTankImplementation();</div><div class="line">T90 tank = new T90(tankImplementation);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;桥接模式&quot;&gt;&lt;a href=&quot;#桥接模式&quot; class=&quot;headerlink&quot; title=&quot;桥接模式&quot;&gt;&lt;/a&gt;桥接模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -104,11 +263,33 @@
     <link href="http://blog.step520.com/2017/03/24/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-Adapter/"/>
     <id>http://blog.step520.com/2017/03/24/适配器模式-Adapter/</id>
     <published>2017-03-24T08:02:25.000Z</published>
-    <updated>2017-03-24T08:02:25.712Z</updated>
+    <updated>2017-03-24T08:07:40.741Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><a id="more"></a>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在软件系统中，由于应用环境的变化， 常常需要将“一些现存的对象”放在新的环境中应用，但是新环境要求的接口是这些现存对象所不满足的。</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 将一个类的接口转换成客户希望的另一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/01/58b6945983aba.png" alt="adapter.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>Adapter模式主要应用于“希望复用一些现存的类，但是接口又与复用环境要求不一致的情况” ，在遗留代码复用、类库迁移等方面非常有用。</li>
+<li>GoF 23 定义了两种Adapter模式的实现结构：对象适配器和类适配器。但类适配器采用“多继承”的实现方式，带来了不良的高耦合，所以一般不推荐使用。对象适配器采用“对象组合”的方式，更符合松耦合精神。</li>
+<li>Adapter模式可以实现的非常灵活，不必拘泥于Gof23中定义的两种结构。例如，完全可以将Adapter模式中的“现存对象”作为新的接口方法参数，来达到适配的目的。</li>
+<li>Adapter模式本身要求我们尽可能地使用“面向接口的编程”风格，这样才能在后期很方便地适配。<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>ArrayList栈实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//栈接口</div><div class="line">public interface IStack</div><div class="line">&#123;</div><div class="line">    void Push(object item);</div><div class="line">    object Pop();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//适配器</div><div class="line">public class Adapter:IStack</div><div class="line">&#123;</div><div class="line">    //被适配对象</div><div class="line">    ArrayList adaptee;</div><div class="line">    public Adapter()</div><div class="line">    &#123;</div><div class="line">        adaptee = new ArrayList();</div><div class="line">    &#125;</div><div class="line">    public void Push(object item)</div><div class="line">    &#123;</div><div class="line">        adaptee.addItem(item);</div><div class="line">    &#125;</div><div class="line">    public object Pop()</div><div class="line">    &#123;</div><div class="line">        return adaptee.removeAt(adaptee.count -1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>结构图对应实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//现有类</div><div class="line">public class Adaptee</div><div class="line">&#123;</div><div class="line">    public void SpecificRequest1()</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    public void SpecificRequest2()</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//新系统接口</div><div class="line">public interface ITarget</div><div class="line">&#123;</div><div class="line">    public abstract void Request();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//新系统</div><div class="line">class Sys</div><div class="line">&#123;</div><div class="line">    public void Process(ITarget target)</div><div class="line">    &#123;</div><div class="line">        target.Request();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//新系统适配</div><div class="line">public class Adapter:ITarget</div><div class="line">&#123;</div><div class="line">    Adaptee adaptee = new Adaptee();</div><div class="line">    public override void Request()</div><div class="line">    &#123;</div><div class="line">        adaptee.SpecificRequest1();</div><div class="line">        adaptee.SpecificRequest2();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;适配器模式&quot;&gt;&lt;a href=&quot;#适配器模式&quot; class=&quot;headerlink&quot; title=&quot;适配器模式&quot;&gt;&lt;/a&gt;适配器模式&lt;/h3&gt;
+    
     </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>
@@ -118,9 +299,10 @@
     <link href="http://blog.step520.com/2017/03/24/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F-Prototype/"/>
     <id>http://blog.step520.com/2017/03/24/原型模式-Prototype/</id>
     <published>2017-03-24T07:58:55.000Z</published>
-    <updated>2017-03-24T08:05:14.580Z</updated>
+    <updated>2017-03-24T08:06:50.303Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><a id="more"></a>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。</p>
 <h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 使用原型实例指定创建对象的种类，然后通过拷贝这些原型来创建新的对象。</p>
 <h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/01/58b64180d1c03.png" alt="prototype.png"></p>
 <h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
@@ -144,7 +326,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;原型模式&quot;&gt;&lt;a href=&quot;#原型模式&quot; class=&quot;headerlink&quot; title=&quot;原型模式&quot;&gt;&lt;/a&gt;原型模式&lt;/h3&gt;&lt;h3 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h3&gt;&lt;p&gt; 在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。&lt;br&gt;
+      &lt;h3 id=&quot;原型模式&quot;&gt;&lt;a href=&quot;#原型模式&quot; class=&quot;headerlink&quot; title=&quot;原型模式&quot;&gt;&lt;/a&gt;原型模式&lt;/h3&gt;
     
     </summary>
     

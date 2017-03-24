@@ -5,16 +5,18 @@
   
   <title>享元模式-Flyweight | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步子，学习，笔记">
+  <meta name="description" content="享元模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="享元模式-Flyweight">
 <meta property="og:url" content="http://blog.step520.com/2017/03/24/享元模式-Flyweight/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="步子，学习，笔记">
-<meta property="og:updated_time" content="2017-03-24T08:03:47.590Z">
+<meta property="og:description" content="享元模式">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/03/03/58b8e6ba017b7.png">
+<meta property="og:updated_time" content="2017-03-24T08:15:57.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="享元模式-Flyweight">
-<meta name="twitter:description" content="步子，学习，笔记">
+<meta name="twitter:description" content="享元模式">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/03/03/58b8e6ba017b7.png">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -73,6 +75,10 @@
   <time datetime="2017-03-24T08:03:47.000Z" itemprop="datePublished">2017-03-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -89,11 +95,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><a id="more"></a>
+<p> 面向对象很好地解决了系统抽象性的问题，同时在大多数情况下，也不会损及系统的性能。但是，在某些特殊的应用中，由于对象的数量太大，采用面向对象会给系统带来难以承受的内存开销。比如图形应用中的图元等对象、字处理应用中的字符对象等。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 采用纯粹对象方案的问题在于大量细粒度的对象会很快充斥在系统中，从而带来很高的运行时代价——主要指内存需求方面的代价。</p>
+<p> 如何在避免大量细粒度对象问题的同时，让外部客户程序仍然能够透明地使用面向对象的方式来进行操作？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 运用共享技术有效地支持大量细粒度的对象。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/03/58b8e6ba017b7.png" alt="FlyWeight.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>面向对象很好地解决了抽象性的问题，但是作为一个运行在机器中的程序实体，我们需要考虑对象的代价问题。Flyweight设计模式主要解决面向对象的代价问题，一般不触及面向对象的抽象性问题。</p>
+</li>
+<li><p>Flyweight采用对象共享的做法来降低系统中对象的个数，从而降低细粒度对象给系统带来的内存压力。在具体实现方面，要注意对象状态的处理。</p>
+</li>
+<li><p>对象的数量太大从而导致对象内存开销加大——什么样的数量才算大？这需要我们仔细的根据具体应用情况进行评估，而不能凭空臆断。</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>Flyweight</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">public class Flyweight</div><div class="line">&#123;</div><div class="line">    public char chr;</div><div class="line">    Font f;</div><div class="line">    static Hastable fontTable;</div><div class="line">    public Font CFont</div><div class="line">    &#123;</div><div class="line">        get</div><div class="line">        &#123;</div><div class="line">            return f;</div><div class="line">        &#125;</div><div class="line">        set</div><div class="line">        &#123;</div><div class="line">            if(fontTable.Keys.Exists(f))</div><div class="line">            &#123;</div><div class="line">                this.f = fontTable.Keys[f];</div><div class="line">            &#125;</div><div class="line">            else</div><div class="line">            &#123;</div><div class="line">                fontTable.Keys.Add(value);</div><div class="line">                f = value;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Font f1 = new Font(&quot;宋体&quot;);</div><div class="line">Font f2 = new Font(&quot;宋体&quot;);</div><div class="line"></div><div class="line">Flyweight fw1 = new Flyweight();</div><div class="line">fw1.chr = &apos;c&apos;;</div><div class="line">fw1.CFont = f1;</div><div class="line"></div><div class="line">Flyweight fw2 = new Flyweight();</div><div class="line">fw2.chr = &apos;c&apos;;</div><div class="line">fw2.CFont = f2;//共享f1内存</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2017/03/24/享元模式-Flyweight/" data-id="cj0njkxqe0012o4vp6xx2r5mf" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2017/03/24/享元模式-Flyweight/" data-id="cj0njz2x0000pckvp4o41z1gh" class="article-share-link">分享</a>
       
         <a href="http://blog.step520.com/2017/03/24/享元模式-Flyweight/#ds-thread" class="article-comment-link">留言</a>
       

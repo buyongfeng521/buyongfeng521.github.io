@@ -5,16 +5,18 @@
   
   <title>装饰模式-Decorator | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步子，学习，笔记">
+  <meta name="description" content="装饰模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="装饰模式-Decorator">
 <meta property="og:url" content="http://blog.step520.com/2017/03/24/装饰模式-Decorator/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="步子，学习，笔记">
-<meta property="og:updated_time" content="2017-03-24T08:03:13.899Z">
+<meta property="og:description" content="装饰模式">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/03/02/58b7e7aa5bb17.png">
+<meta property="og:updated_time" content="2017-03-24T08:13:03.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="装饰模式-Decorator">
-<meta name="twitter:description" content="步子，学习，笔记">
+<meta name="twitter:description" content="装饰模式">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/03/02/58b7e7aa5bb17.png">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -73,6 +75,10 @@
   <time datetime="2017-03-24T08:03:13.000Z" itemprop="datePublished">2017-03-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -89,11 +95,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h3><a id="more"></a>
+<p> 假如我们需要为游戏中开发一种坦克，除了各种不同的型号的坦克外，我们还希望在不同场合中为其增加以下一种或多种功能：比如红外线夜视功能，比如水陆两栖功能，比如卫星定位功能等等。<br> 如果再添加一种功能D，那么需要增加的T50子类的数量可想而知，而这只是T50这个类型，如果还有其他T70等类型，那么需要新添加的子类将不可计数。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 上述描述的问题根源在于我们“过度地使用了继承来扩展对象的功能”，由于继承为类型引入的静态特质（所谓静态特质，就是说如果想要某种功能，我们必须在编译的时候就要定义这个类，这也是强类型语言的特点。静态，就是指在编译的时候要确定的东西；动态，是指运行时确定的东西），使得这种扩展方式缺乏灵活性；并且随着子类的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀（多继承）。</p>
+<p> 如何使“对象功能的扩展”能够根据需要来动态（即运行时）地实现？同时避免“扩展功能的增多”带来的子类膨胀问题？从而使得任何“功能扩展变化”所导致的影响降为最低？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 动态地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类更为灵活。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/02/58b7e7aa5bb17.png" alt="Decorator.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>通过采用组合、而非继承的手法，Decorator模式实现了在运行时（就是在客户代码Main函数里写的代码）动态地扩展对象功能的能力，而且可以根据需要扩展多个功能。避免了单独使用继承带来的“灵活性差”和“多子类衍生问题”。</p>
+</li>
+<li><p>Component类在Decorator模式中充当抽象接口的角色，不应该去实现具体的行为。而且Decorator类对于Component类应该透明——换言之Component类无需知道Decorator类，Decorator类是从外部来扩展Component类的功能。</p>
+</li>
+<li><p>Decorator类在接口上表现为Is-A：Component的继承关系，即Decorator类继承了Component类所具有的接口。但在实现上有表现为Has-A：Component的组合关系，即Decorator类又使用了另外一个Component类。我们可以使用一个或者多个Decorator对象来“装饰”一个Component对象，且装饰后的对象仍然是一个Component对象。</p>
+</li>
+<li><p>Decorator模式并非解决“多子类衍生的多继承”问题，Decorator模式，应用的要点在于解决“主体类在多个方向上的扩展功能”——是为“装饰”的含义。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3></li>
+<li><p>Tank</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public abstract class Tank</div><div class="line">&#123;</div><div class="line">    public abstract void Run();</div><div class="line">    public abstract void Stop();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class T50:Tank</div><div class="line">&#123;</div><div class="line">    public void Run()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line">    public void Stop()</div><div class="line">    &#123;</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>装饰</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">//装饰</div><div class="line">public abstract class Decorator:Tank</div><div class="line">&#123;</div><div class="line">    private Tank tank;</div><div class="line">    public Decorator(Tank tank)</div><div class="line">    &#123;</div><div class="line">        this.tank = tank;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        tank.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        tank.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//红外</div><div class="line">public class DecoratorA:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorA(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //红外扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //红外扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//两栖</div><div class="line">public class DecoratorB:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorB(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //两栖扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //两栖扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//卫星定位</div><div class="line">public class DecoratorC:Decorator</div><div class="line">&#123;</div><div class="line">    public DecoratorB(Tank tank):base(tank)</div><div class="line">    &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public override void Run()</div><div class="line">    &#123;</div><div class="line">        //卫星定位扩展功能</div><div class="line">        //...</div><div class="line"></div><div class="line">        //do run</div><div class="line">        base.Run();</div><div class="line">    &#125;</div><div class="line">    public override void Stop()</div><div class="line">    &#123;</div><div class="line">        //卫星定位扩展功能</div><div class="line">        //...</div><div class="line">        </div><div class="line">        //do stop</div><div class="line">        base.Stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Tank tank = new T50();</div><div class="line">DecoratorA da = new DecoratorA(tank);//红外</div><div class="line">//da.Run();</div><div class="line">//da.Stop();</div><div class="line">DecoratorB db = new DecoratorB(da);//红外，两栖</div><div class="line">DecoragorC dc = new DecoratorC(db);//红外，两栖，卫星定位</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2017/03/24/装饰模式-Decorator/" data-id="cj0njkxqz001to4vpgz8578ij" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2017/03/24/装饰模式-Decorator/" data-id="cj0njz2y4001pckvpnnr5hxnj" class="article-share-link">分享</a>
       
         <a href="http://blog.step520.com/2017/03/24/装饰模式-Decorator/#ds-thread" class="article-comment-link">留言</a>
       

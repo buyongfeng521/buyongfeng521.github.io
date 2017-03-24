@@ -5,16 +5,18 @@
   
   <title>适配器模式-Adapter | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步子，学习，笔记">
+  <meta name="description" content="适配器模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="适配器模式-Adapter">
 <meta property="og:url" content="http://blog.step520.com/2017/03/24/适配器模式-Adapter/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="步子，学习，笔记">
-<meta property="og:updated_time" content="2017-03-24T08:02:25.712Z">
+<meta property="og:description" content="适配器模式">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/03/01/58b6945983aba.png">
+<meta property="og:updated_time" content="2017-03-24T08:07:40.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="适配器模式-Adapter">
-<meta name="twitter:description" content="步子，学习，笔记">
+<meta name="twitter:description" content="适配器模式">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/03/01/58b6945983aba.png">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -73,6 +75,10 @@
   <time datetime="2017-03-24T08:02:25.000Z" itemprop="datePublished">2017-03-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -89,11 +95,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><a id="more"></a>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在软件系统中，由于应用环境的变化， 常常需要将“一些现存的对象”放在新的环境中应用，但是新环境要求的接口是这些现存对象所不满足的。</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 将一个类的接口转换成客户希望的另一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/01/58b6945983aba.png" alt="adapter.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>Adapter模式主要应用于“希望复用一些现存的类，但是接口又与复用环境要求不一致的情况” ，在遗留代码复用、类库迁移等方面非常有用。</li>
+<li>GoF 23 定义了两种Adapter模式的实现结构：对象适配器和类适配器。但类适配器采用“多继承”的实现方式，带来了不良的高耦合，所以一般不推荐使用。对象适配器采用“对象组合”的方式，更符合松耦合精神。</li>
+<li>Adapter模式可以实现的非常灵活，不必拘泥于Gof23中定义的两种结构。例如，完全可以将Adapter模式中的“现存对象”作为新的接口方法参数，来达到适配的目的。</li>
+<li>Adapter模式本身要求我们尽可能地使用“面向接口的编程”风格，这样才能在后期很方便地适配。<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>ArrayList栈实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//栈接口</div><div class="line">public interface IStack</div><div class="line">&#123;</div><div class="line">    void Push(object item);</div><div class="line">    object Pop();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//适配器</div><div class="line">public class Adapter:IStack</div><div class="line">&#123;</div><div class="line">    //被适配对象</div><div class="line">    ArrayList adaptee;</div><div class="line">    public Adapter()</div><div class="line">    &#123;</div><div class="line">        adaptee = new ArrayList();</div><div class="line">    &#125;</div><div class="line">    public void Push(object item)</div><div class="line">    &#123;</div><div class="line">        adaptee.addItem(item);</div><div class="line">    &#125;</div><div class="line">    public object Pop()</div><div class="line">    &#123;</div><div class="line">        return adaptee.removeAt(adaptee.count -1);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>结构图对应实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//现有类</div><div class="line">public class Adaptee</div><div class="line">&#123;</div><div class="line">    public void SpecificRequest1()</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    public void SpecificRequest2()</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//新系统接口</div><div class="line">public interface ITarget</div><div class="line">&#123;</div><div class="line">    public abstract void Request();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//新系统</div><div class="line">class Sys</div><div class="line">&#123;</div><div class="line">    public void Process(ITarget target)</div><div class="line">    &#123;</div><div class="line">        target.Request();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//新系统适配</div><div class="line">public class Adapter:ITarget</div><div class="line">&#123;</div><div class="line">    Adaptee adaptee = new Adaptee();</div><div class="line">    public override void Request()</div><div class="line">    &#123;</div><div class="line">        adaptee.SpecificRequest1();</div><div class="line">        adaptee.SpecificRequest2();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2017/03/24/适配器模式-Adapter/" data-id="cj0njkxr1001xo4vp2ami6drv" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2017/03/24/适配器模式-Adapter/" data-id="cj0njz2y5001qckvp079ioclm" class="article-share-link">分享</a>
       
         <a href="http://blog.step520.com/2017/03/24/适配器模式-Adapter/#ds-thread" class="article-comment-link">留言</a>
       

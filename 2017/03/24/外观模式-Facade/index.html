@@ -5,16 +5,18 @@
   
   <title>外观模式-Facade | 步子的学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步子，学习，笔记">
+  <meta name="description" content="外观模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="外观模式-Facade">
 <meta property="og:url" content="http://blog.step520.com/2017/03/24/外观模式-Facade/index.html">
 <meta property="og:site_name" content="步子的学习笔记">
-<meta property="og:description" content="步子，学习，笔记">
-<meta property="og:updated_time" content="2017-03-24T08:03:38.406Z">
+<meta property="og:description" content="外观模式">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/03/03/58b8d5c4581e8.png">
+<meta property="og:updated_time" content="2017-03-24T08:14:11.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="外观模式-Facade">
-<meta name="twitter:description" content="步子，学习，笔记">
+<meta name="twitter:description" content="外观模式">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/03/03/58b8d5c4581e8.png">
   
     <link rel="alternate" href="/atom.xml" title="步子的学习笔记" type="application/atom+xml">
   
@@ -73,6 +75,10 @@
   <time datetime="2017-03-24T08:03:38.000Z" itemprop="datePublished">2017-03-24</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -89,11 +95,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><a id="more"></a>
+<p> 假设我们需要开发一个坦克模拟系统用于模拟坦克车在各种作战环境中的行为，其中坦克系统由引擎、控制器、车轮、车身等各子系统构成。</p>
+<h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 组件的客户（即外部接口，或客户程序）和组件中各种复杂的子系统有了过多的耦合，随着外部客户程序和各子系统的演化，这种过多的耦合面临很多变化的挑战。</p>
+<p> 如何简化外部客户程序和系统间的交互接口？如何将外部客户程序的演化和内部子系统的变化之间的依赖相互解耦？</p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/03/58b8d5c4581e8.png" alt="Facade.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li><p>从客户程序的角度来看，Facade模式不仅简化了整个组件系统的接口，同时对于组件内部与外部客户程序来说，从某种程度上也达到了一种“解耦”的效果——内部子系统的任何变化不会影响到Facade接口的变化。</p>
+</li>
+<li><p>Facade设计模式更注重从架构的层次去看整个系统，而不是单个类的层次。Facade很多时候更是一种架构设计模式。</p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public interface Wheel</div><div class="line">&#123;</div><div class="line">    void WActon1();</div><div class="line">    void WAction2();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public interface Engine</div><div class="line">&#123;</div><div class="line">    void EAction1();</div><div class="line">    void EAction2();</div><div class="line">&#125;</div><div class="line"></div><div class="line">public interface Controller</div><div class="line">&#123;</div><div class="line">    void CAction1();</div><div class="line">    void CAction2();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Facade</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class Facade</div><div class="line">&#123;</div><div class="line">    Wheel[] wheels = WheelFactory.GetWheel(4);</div><div class="line">    Engine[] engines = EngineFactory.GetEngine(2);</div><div class="line">    Controller controller = Controller.GetController(1);</div><div class="line"></div><div class="line">    public void Run()</div><div class="line">    &#123;</div><div class="line">        wheels[0].WAction1();</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void Stop()</div><div class="line">    &#123;</div><div class="line">        wheels[0].SAction1();</div><div class="line">        //..</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//不必关心Wheel和Engine等的具体实现，只需关注Facade</div><div class="line">Facade facade = new Facade();</div><div class="line">facade.Run();</div><div class="line">facade.Stop();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.step520.com/2017/03/24/外观模式-Facade/" data-id="cj0njkxqo001do4vpein0vved" class="article-share-link">分享</a>
+      <a data-url="http://blog.step520.com/2017/03/24/外观模式-Facade/" data-id="cj0njz2x80015ckvpvw2jwi4y" class="article-share-link">分享</a>
       
         <a href="http://blog.step520.com/2017/03/24/外观模式-Facade/#ds-thread" class="article-comment-link">留言</a>
       
