@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.step520.com/"/>
-  <updated>2016-12-08T03:13:13.657Z</updated>
+  <updated>2017-03-24T08:03:57.212Z</updated>
   <id>http://blog.step520.com/</id>
   
   <author>
@@ -16,11 +16,149 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>代理模式-Proxy</title>
+    <link href="http://blog.step520.com/2017/03/24/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-Proxy/"/>
+    <id>http://blog.step520.com/2017/03/24/代理模式-Proxy/</id>
+    <published>2017-03-24T08:03:57.000Z</published>
+    <updated>2017-03-24T08:03:57.212Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>享元模式-Flyweight</title>
+    <link href="http://blog.step520.com/2017/03/24/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F-Flyweight/"/>
+    <id>http://blog.step520.com/2017/03/24/享元模式-Flyweight/</id>
+    <published>2017-03-24T08:03:47.000Z</published>
+    <updated>2017-03-24T08:03:47.590Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>外观模式-Facade</title>
+    <link href="http://blog.step520.com/2017/03/24/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-Facade/"/>
+    <id>http://blog.step520.com/2017/03/24/外观模式-Facade/</id>
+    <published>2017-03-24T08:03:38.000Z</published>
+    <updated>2017-03-24T08:03:38.406Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>装饰模式-Decorator</title>
+    <link href="http://blog.step520.com/2017/03/24/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F-Decorator/"/>
+    <id>http://blog.step520.com/2017/03/24/装饰模式-Decorator/</id>
+    <published>2017-03-24T08:03:13.000Z</published>
+    <updated>2017-03-24T08:03:13.899Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>组合模式-Composite</title>
+    <link href="http://blog.step520.com/2017/03/24/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F-Composite/"/>
+    <id>http://blog.step520.com/2017/03/24/组合模式-Composite/</id>
+    <published>2017-03-24T08:02:57.000Z</published>
+    <updated>2017-03-24T08:02:57.607Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>桥接模式-Bridge</title>
+    <link href="http://blog.step520.com/2017/03/24/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F-Bridge/"/>
+    <id>http://blog.step520.com/2017/03/24/桥接模式-Bridge/</id>
+    <published>2017-03-24T08:02:44.000Z</published>
+    <updated>2017-03-24T08:02:44.435Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>适配器模式-Adapter</title>
+    <link href="http://blog.step520.com/2017/03/24/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-Adapter/"/>
+    <id>http://blog.step520.com/2017/03/24/适配器模式-Adapter/</id>
+    <published>2017-03-24T08:02:25.000Z</published>
+    <updated>2017-03-24T08:02:25.712Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>原型模式-Prototype</title>
+    <link href="http://blog.step520.com/2017/03/24/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F-Prototype/"/>
+    <id>http://blog.step520.com/2017/03/24/原型模式-Prototype/</id>
+    <published>2017-03-24T07:58:55.000Z</published>
+    <updated>2017-03-24T08:05:14.580Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p> 在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。<br><a id="more"></a></p>
+<h3 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h3><p> 使用原型实例指定创建对象的种类，然后通过拷贝这些原型来创建新的对象。</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p> <img src="https://ooo.0o0.ooo/2017/03/01/58b64180d1c03.png" alt="prototype.png"></p>
+<h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><ul>
+<li>Prototype模式同样用于隔离类对象的使用者和具体类型（易变类）之间的耦合关系，它同样要求这些“易变类”拥有“稳定的接口”。</li>
+<li>Prototype模式对于“如何创建易变类的实体对象”采用“原型克隆”的方法来做，它使得我们可以非常灵活地动态创建“拥有某些稳定接口”的新对象——所需工作仅仅是注册一个新类的对象（即原型），然后在任何需要的地方不断地Clone。</li>
+<li>Prototype模式中的Clone方法可以利用.NET中的Object类的MemberwiseClone()方法或者序列化来实现深拷贝。<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3></li>
+<li><p>原型抽象对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public abstract class A</div><div class="line">&#123;</div><div class="line">    public abstract A clone();</div><div class="line">&#125;</div><div class="line">public abstract class B</div><div class="line">&#123;</div><div class="line">    public abstract B clone();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class A1:A</div><div class="line">&#123;</div><div class="line">    public override A clone()</div><div class="line">    &#123;</div><div class="line">        return (A)this.MemberwiseClone();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class A2:A</div><div class="line">&#123;</div><div class="line">    public override A clone()</div><div class="line">    &#123;</div><div class="line">        return (A)this.MemberwiseClone();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class B1:B</div><div class="line">&#123;</div><div class="line">    public override B clone()</div><div class="line">    &#123;</div><div class="line">        return (B)this.MemberwiseClone();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">public class B2:B</div><div class="line">&#123;</div><div class="line">    public override B clone()</div><div class="line">    &#123;</div><div class="line">        return (B)this.MemberwiseClone();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>操作对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Sys</div><div class="line">&#123;</div><div class="line">    public void Create(A a,B b)</div><div class="line">    &#123;   </div><div class="line">        A a1 = a.clone();</div><div class="line">        A a2 = a.clone();</div><div class="line"></div><div class="line">        B b1 = b.clone();</div><div class="line">        B b2 = b.clone();</div><div class="line">        B b3 = b.clone();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Client</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Sys sys = new Sys();</div><div class="line">//变化点</div><div class="line">sys.Create(new A1(),new B1());</div><div class="line">sys.Create(new A2(),new B2());</div><div class="line">sys.Create(new A1(),new B2());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;原型模式&quot;&gt;&lt;a href=&quot;#原型模式&quot; class=&quot;headerlink&quot; title=&quot;原型模式&quot;&gt;&lt;/a&gt;原型模式&lt;/h3&gt;&lt;h3 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h3&gt;&lt;p&gt; 在软件系统中，经常面临着“某些结构复杂的对象”的创建工作；由于需求的变化，这些对象经常面临着剧烈的变化，但是它们却拥有比较稳定一致的接口。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://blog.step520.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>AngularJS（7）两种搜索实现和配置实现</title>
     <link href="http://blog.step520.com/2016/12/08/AngularJS%EF%BC%887%EF%BC%89%E4%B8%A4%E7%A7%8D%E6%90%9C%E7%B4%A2%E5%AE%9E%E7%8E%B0%E5%92%8C%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0/"/>
     <id>http://blog.step520.com/2016/12/08/AngularJS（7）两种搜索实现和配置实现/</id>
     <published>2016-12-08T02:48:31.000Z</published>
-    <updated>2016-12-08T03:13:13.657Z</updated>
+    <updated>2016-12-08T03:13:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>两种方法实现搜索功能，普通实现和指令实现。<br>全局配置的实现（公共配置）。<br><a id="more"></a></p>
 <hr>
@@ -78,7 +216,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%886%EF%BC%89Loading/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（6）Loading/</id>
     <published>2016-12-07T04:29:20.000Z</published>
-    <updated>2016-12-07T06:39:03.747Z</updated>
+    <updated>2016-12-07T06:39:04.000Z</updated>
     
     <content type="html"><![CDATA[<p>页面请求数据时候，为了用户体验，会加入加载数据的动画。<br>本篇记录如何加入css3的loading动画。<br><a id="more"></a></p>
 <hr>
@@ -122,7 +260,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%885%EF%BC%89%E5%AF%BC%E8%88%AA%E7%84%A6%E7%82%B9%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（5）导航焦点自动切换/</id>
     <published>2016-12-07T02:23:07.000Z</published>
-    <updated>2016-12-07T06:48:41.177Z</updated>
+    <updated>2016-12-07T06:48:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>Angular写一个指令，点击时候，自动切换焦点。<br><a id="more"></a></p>
 <h3 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h3><ul>
@@ -157,7 +295,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%884%EF%BC%89%E5%88%86%E9%A1%B5/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（4）分页/</id>
     <published>2016-12-07T02:22:56.000Z</published>
-    <updated>2016-12-07T06:53:28.179Z</updated>
+    <updated>2016-12-07T06:53:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>数据请求过多，导致加载很慢，就需要进行分页。<br>第几页page，每页多少条count，共几页totalPages。<br>page = n;<br>start = (n-1)*count;<br>totalPages = Math.ceil(tatalCount/count);<br><a id="more"></a></p>
 <hr>
@@ -199,7 +337,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%883%EF%BC%89%E8%B7%A8%E5%9F%9F/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（3）跨域/</id>
     <published>2016-12-07T02:22:43.000Z</published>
-    <updated>2016-12-07T06:49:24.724Z</updated>
+    <updated>2016-12-07T06:49:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>跨域几乎在前端开发总会遇到的一个东西。<br>自主开发选用：CORS（跨域资源共享）<br>第三方API仅仅提供获取数据的get请求，且不支持CORS，选用：JSONP<br>本文由于采用豆瓣第三方API，故采用JSONP方式；且不支持回调函数 mod.func带<strong> . </strong>方式，故自己写JSONP，作为Angular一个组件Service<br><a id="more"></a></p>
 <hr>
@@ -237,7 +375,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%882%EF%BC%89%E8%AE%BE%E8%AE%A1%E8%B7%AF%E7%94%B1%E5%92%8C%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（2）设计路由和基本页面/</id>
     <published>2016-12-07T02:22:29.000Z</published>
-    <updated>2016-12-07T03:52:04.399Z</updated>
+    <updated>2016-12-07T03:52:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>Angular路由和基本页面设计<br><a id="more"></a></p>
 <hr>
@@ -294,7 +432,7 @@
     <link href="http://blog.step520.com/2016/12/07/AngularJS%EF%BC%881%EF%BC%89%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"/>
     <id>http://blog.step520.com/2016/12/07/AngularJS（1）项目结构/</id>
     <published>2016-12-07T02:22:11.000Z</published>
-    <updated>2016-12-08T02:48:58.450Z</updated>
+    <updated>2016-12-08T02:49:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>看某培训机构视频，整理笔记。方便以后查阅。<br>项目结构进行简单介绍<br><a id="more"></a></p>
 <hr>
@@ -360,7 +498,7 @@
     <link href="http://blog.step520.com/2016/12/05/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F-Builder/"/>
     <id>http://blog.step520.com/2016/12/05/生成器模式-Builder/</id>
     <published>2016-12-05T11:59:54.000Z</published>
-    <updated>2016-12-05T14:00:08.647Z</updated>
+    <updated>2016-12-05T14:00:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>创建型设计模式。对象的构建过程如果相对稳定，对象内的对象频繁变化，可使用此模式。<br>如，装修房子的过程稳定，先铺地板，然后天花板，最后门和窗；然地板，天花板，门，窗这些东西根据装修要求不同选用不同的材料。<br><a id="more"></a></p>
 <h3 id="抽象类（房子对象以及相关对象和方法）"><a href="#抽象类（房子对象以及相关对象和方法）" class="headerlink" title="抽象类（房子对象以及相关对象和方法）"></a>抽象类（房子对象以及相关对象和方法）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">public abstract class Floor</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Ceiling</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Window</div><div class="line">&#123;&#125;</div><div class="line">public abstract class Door</div><div class="line">&#123;&#125;</div><div class="line">public abstract class House</div><div class="line">&#123;&#125;</div><div class="line">public abstract class BuildHouse</div><div class="line">&#123;</div><div class="line">    public Floor f;</div><div class="line">    public Ceiling c;</div><div class="line">    public Window w;</div><div class="line">    public Door d;</div><div class="line">    </div><div class="line">    public abstract void BuildFloor();</div><div class="line">    public abstract void BuildCeiling();</div><div class="line">    public abstract void BuildWindow();</div><div class="line">    public abstract void BuildDoor();</div><div class="line">    </div><div class="line">    public abstract House GetHouse();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -384,7 +522,7 @@
     <link href="http://blog.step520.com/2016/12/05/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F-AbstractFactory/"/>
     <id>http://blog.step520.com/2016/12/05/抽象工厂模式-AbstractFactory/</id>
     <published>2016-12-05T11:59:39.000Z</published>
-    <updated>2016-12-05T14:01:47.191Z</updated>
+    <updated>2016-12-05T14:01:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>创建型设计模式。为创建一组相关或相互依赖的对象提供一个接口，而且无需指定它们的具体类。<br><a id="more"></a></p>
 <h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><ul>
@@ -441,7 +579,7 @@
     <link href="http://blog.step520.com/2016/12/05/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F-FactoryMethod/"/>
     <id>http://blog.step520.com/2016/12/05/工厂方法模式-FactoryMethod/</id>
     <published>2016-12-05T11:59:23.000Z</published>
-    <updated>2016-12-05T14:01:42.864Z</updated>
+    <updated>2016-12-05T14:01:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>创建型模式。隔离类对象的使用者和具体类型之前耦合关系。<br>    FactoryMethod解决”单个对象”的需求变化；<br>    AbstractFactory解决”系列对象”的需求变化；<br>    Builder解决”对象部分”的需求变化<br><a id="more"></a></p>
 <h3 id="抽象动物"><a href="#抽象动物" class="headerlink" title="抽象动物"></a>抽象动物</h3><ul>
@@ -487,7 +625,7 @@
     <link href="http://blog.step520.com/2016/12/05/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-Singleton/"/>
     <id>http://blog.step520.com/2016/12/05/单例模式-Singleton/</id>
     <published>2016-12-05T11:58:58.000Z</published>
-    <updated>2016-12-05T14:01:30.828Z</updated>
+    <updated>2016-12-05T14:01:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>创建型设计模式。保证一个类仅有一个实例，并提供一个访问它的全局访问点。<br><a id="more"></a></p>
 <h3 id="单线程单例"><a href="#单线程单例" class="headerlink" title="单线程单例"></a>单线程单例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Single</div><div class="line">&#123;</div><div class="line">    //声明静态变量</div><div class="line">    private static Single Instance;</div><div class="line">    //构造函数，不设置的话，默认是一个public的构造函数</div><div class="line">    private void Single();</div><div class="line">    //暴露的方法</div><div class="line">    public Single GetInstance()</div><div class="line">    &#123;</div><div class="line">        if(Instance == null)</div><div class="line">        &#123;</div><div class="line">          Instance = new Single();</div><div class="line">        &#125;</div><div class="line">        return Instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -512,7 +650,7 @@
     <link href="http://blog.step520.com/2016/12/05/%E9%97%AD%E5%8C%85-2/"/>
     <id>http://blog.step520.com/2016/12/05/闭包-2/</id>
     <published>2016-12-05T10:14:11.000Z</published>
-    <updated>2016-12-05T14:01:53.196Z</updated>
+    <updated>2016-12-05T14:01:54.000Z</updated>
     
     <content type="html"><![CDATA[<p>闭包可以看作是一个类，通过暴露的方法(函数)可以访问内部的私有属性或变量<br>闭包就是一种语法糖，它以很自然的形式，把我们的目的和我们的目的所涉及的资源全给自动打包在一起，以某种自然、尽量不让人误解的方式让人来使用。<br><a id="more"></a></p>
 <h3 id="模拟类"><a href="#模拟类" class="headerlink" title="模拟类"></a>模拟类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function getName()&#123;</div><div class="line">    var name = &quot;小菜&quot;;</div><div class="line">    var fName = function()&#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line">    return fName;</div><div class="line">&#125;</div><div class="line">//getName函数返回一个获取name的函数fName（获取类里的那么，通过fName方法）</div><div class="line">var f = getName();</div><div class="line">f(); //此时才去执行fName函数</div></pre></td></tr></table></figure>
@@ -529,407 +667,6 @@
     
       <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>函数和方法(1)</title>
-    <link href="http://blog.step520.com/2016/12/05/%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95-1/"/>
-    <id>http://blog.step520.com/2016/12/05/函数和方法-1/</id>
-    <published>2016-12-05T10:13:33.000Z</published>
-    <updated>2016-12-05T14:01:26.896Z</updated>
-    
-    <content type="html"><![CDATA[<p>一句话总结：在一个对象中绑定函数，称为这个对象的方法。<br><a id="more"></a></p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function sum(a,b)&#123;</div><div class="line">    return a + b;</div><div class="line">&#125;</div><div class="line">//调用</div><div class="line">sum(1,2); //3</div></pre></td></tr></table></figure>
-<h3 id="函数另一种写法"><a href="#函数另一种写法" class="headerlink" title="函数另一种写法"></a>函数另一种写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var sum = function(a,b)&#123;</div><div class="line">    return a + b;</div><div class="line">&#125;;</div><div class="line">//调用</div><div class="line">sum(1,2);//3</div></pre></td></tr></table></figure>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var step = &#123;</div><div class="line">    &quot;name&quot;:&quot;step&quot;,</div><div class="line">    &quot;age&quot;:27,</div><div class="line">    &quot;sayHello&quot;:function()&#123;</div><div class="line">        alert(&quot;hello my name is &quot; + this.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">step.sayHello();  //函数sayHello()称为step对象的方法</div><div class="line">step.age;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一句话总结：在一个对象中绑定函数，称为这个对象的方法。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>gulp基础</title>
-    <link href="http://blog.step520.com/2016/12/05/gulp%E5%9F%BA%E7%A1%80/"/>
-    <id>http://blog.step520.com/2016/12/05/gulp基础/</id>
-    <published>2016-12-05T10:13:03.000Z</published>
-    <updated>2016-12-05T14:02:10.653Z</updated>
-    
-    <content type="html"><![CDATA[<p>gulp是为了方便前端开发的一种自动化构建工具。<br><a id="more"></a></p>
-<h3 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h3><ul>
-<li>npm install gulp –save 作为项目开发依赖安装 或者 npm installl gulp –global gulp 全局使用</li>
-<li>创建一个gulpfile.js文件</li>
-<li><p>gulpfile.js中写入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">gulp.task(&apos;default&apos;,function()&#123;</div><div class="line">	console.log(&apos;我是默认任务&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>命令行执行 gulp default or gulp</p>
-<h3 id="gulp基础API"><a href="#gulp基础API" class="headerlink" title="gulp基础API"></a>gulp基础API</h3></li>
-<li><p>载入gulp核心包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const gulp = require(&apos;gulp&apos;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>定义一个任务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;任务名称&apos;,function()&#123;</div><div class="line">	console.log(&apos;这里是任务执行体&apos;);</div><div class="line">&#125;);</div><div class="line">//命令行  $ gulp 任务名称</div></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;dest&apos;,function()&#123;</div><div class="line">gulp.src(&apos;src/**/*.*&apos;)</div><div class="line">    .pipe(gulp.dest(&apos;dist/&apos;));</div><div class="line">&#125;);</div><div class="line">//命令行 $ gulp dest</div></pre></td></tr></table></figure>
-</li>
-<li><p>监视文件变化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;watch&apos;,function()&#123;</div><div class="line">	gulp.watch(&apos;src/*&apos;,[&apos;任务1&apos;,&apos;任务2&apos;]);</div><div class="line">&#125;);</div><div class="line">//src目录下的任何文件变化，都会触发后面跟的 任务1和任务2</div><div class="line">//命令行 $ gulp watch</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="gulp-扩展插件"><a href="#gulp-扩展插件" class="headerlink" title="gulp 扩展插件"></a>gulp 扩展插件</h3><p>gulp本身不提供任何功能，只提供最基础的API</p>
-<ul>
-<li><p>gulp-less less转换为css<br><a href="https://www.npmjs.com/package/gulp-less" target="_blank" rel="external">gulp-less</a><br><a href="https://github.com/plus3network/gulp-less" target="_blank" rel="external">git：gulp-less</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;style&apos;,function()&#123;</div><div class="line">return gulp.src(&apos;src/**/*.less&apos;)</div><div class="line">                .pipe(less())</div><div class="line">                .pipe(gulp.dest(&apos;dist/&apos;));</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;watch&apos;,function()&#123;</div><div class="line">	gulp.watch(&apos;src/**/*.less&apos;,[&apos;style&apos;]);</div><div class="line">&#125;);</div><div class="line">//命令行 $ gulp watch</div></pre></td></tr></table></figure>
-</li>
-<li><p>gulp-connect 可以创建一个本地服务器<br><a href="https://www.npmjs.com/package/gulp-connect" target="_blank" rel="external">gulp-connect</a><br><a href="https://www.npmjs.com/package/gulp-connect" target="_blank" rel="external">git：gulp-connect</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const connect = require(&apos;gulp-connect&apos;);</div><div class="line">gulp.task(&apos;serve&apos;,function()&#123;</div><div class="line">	connect.server(&#123;</div><div class="line">	    root:&apos;public&apos;,</div><div class="line">	    livereload:true,</div><div class="line">	    port:8888</div><div class="line">	&#125;);</div><div class="line">	gulp.watch(&apos;监视的文件&apos;,[&apos;reload&apos;]);</div><div class="line">&#125;);</div><div class="line">gulp.task(&apos;reload&apos;,function()&#123;</div><div class="line">    gulp.src(&apos;监视的文件&apos;).pipe(connect.reload());</div><div class="line">&#125;);</div><div class="line">//命令行 $ gulp serve</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="图图图"><a href="#图图图" class="headerlink" title="图图图"></a>图图图</h3><p><img src="https://ooo.0o0.ooo/2016/04/21/57198d2e7bc85.png" alt="1.png"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;gulp是为了方便前端开发的一种自动化构建工具。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.step520.com/categories/javascript/"/>
-    
-    
-      <category term="gulp" scheme="http://blog.step520.com/tags/gulp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>gitbook连接github</title>
-    <link href="http://blog.step520.com/2016/12/05/gitbook%E8%BF%9E%E6%8E%A5github/"/>
-    <id>http://blog.step520.com/2016/12/05/gitbook连接github/</id>
-    <published>2016-12-05T07:59:05.000Z</published>
-    <updated>2016-12-05T14:02:06.071Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用github作为仓库，代码提交到github自动编译发布电子书到gitbook<br><a id="more"></a></p>
-<h4 id="github账号登陆gitbook"><a href="#github账号登陆gitbook" class="headerlink" title="github账号登陆gitbook"></a>github账号登陆gitbook</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d8b622cf.png" alt="1.png"></p>
-<h4 id="添加book，填写相关信息"><a href="#添加book，填写相关信息" class="headerlink" title="添加book，填写相关信息"></a>添加book，填写相关信息</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d8ba4a4c.png" alt="2.png"><br>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d8baad14.png" alt="3.png"></p>
-<h4 id="连接github"><a href="#连接github" class="headerlink" title="连接github"></a>连接github</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d8bc47d4.png" alt="4.png"></p>
-<h4 id="github创建对应的仓库"><a href="#github创建对应的仓库" class="headerlink" title="github创建对应的仓库"></a>github创建对应的仓库</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/573173c94b34c.png" alt="5.png"></p>
-<h4 id="设置权限-Manager-Permissions"><a href="#设置权限-Manager-Permissions" class="headerlink" title="设置权限(Manager Permissions)"></a>设置权限(Manager Permissions)</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d9207e46.png" alt="6.png"></p>
-<h4 id="gitbook中Add-Webhook"><a href="#gitbook中Add-Webhook" class="headerlink" title="gitbook中Add Webhook"></a>gitbook中Add Webhook</h4><p>  <img src="https://ooo.0o0.ooo/2016/05/10/57316d8b9f369.png" alt="7.png"></p>
-<h4 id="以上设置完毕，便可开始以下步骤"><a href="#以上设置完毕，便可开始以下步骤" class="headerlink" title="以上设置完毕，便可开始以下步骤"></a>以上设置完毕，便可开始以下步骤</h4><ul>
-<li>git clone https://…</li>
-<li>创建SUMMARY.md文件，写入目录</li>
-<li>创建目录中对应的文件</li>
-<li>gitbook build ./ ##生成gitbook</li>
-<li>提交到github仓库，会自动编译到对应gitbook</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用github作为仓库，代码提交到github自动编译发布电子书到gitbook&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://blog.step520.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>天猫评论爬取和处理</title>
-    <link href="http://blog.step520.com/2016/12/05/%E5%A4%A9%E7%8C%AB%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96%E5%92%8C%E5%A4%84%E7%90%86/"/>
-    <id>http://blog.step520.com/2016/12/05/天猫评论爬取和处理/</id>
-    <published>2016-12-05T07:58:36.000Z</published>
-    <updated>2016-12-05T14:01:35.575Z</updated>
-    
-    <content type="html"><![CDATA[<p>从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。<br><a id="more"></a></p>
-<h4 id="Python爬取数据"><a href="#Python爬取数据" class="headerlink" title="Python爬取数据"></a>Python爬取数据</h4><ul>
-<li><p>URL拼接(得到请求的URL)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">paras = urllib.urlencode(&#123;&apos;itemId&apos; : itemId,</div><div class="line">&apos;order&apos; : order,</div><div class="line">&apos;pageSize&apos; : pageSize,</div><div class="line">&apos;currentPage&apos; : currentPage,</div><div class="line">&apos;sellerId&apos; : 1,</div><div class="line">&apos;append&apos; : 0,</div><div class="line">&apos;content&apos; : 0,</div><div class="line">&apos;tagId&apos; : &apos;&apos;,</div><div class="line">&apos;callback&apos; : &apos;jsonp618&apos;&#125;)</div><div class="line">commentUrl = tmall_url + paras</div></pre></td></tr></table></figure>
-</li>
-<li><p>加载数据(网络请求，读取数据)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 类调用</div><div class="line">spider = Spider()</div><div class="line">data = spider.load_data(commentUrl)</div><div class="line">...</div><div class="line">def load_data(self,url):</div><div class="line">user_agent=&quot;Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10&quot;</div><div class="line">headers = &#123;&quot;User-Agent&quot;: user_agent&#125;</div><div class="line"></div><div class="line">req = urllib2.Request(url, headers = headers)</div><div class="line">response = urllib2.urlopen(req)</div><div class="line">html = response.read()</div><div class="line"></div><div class="line">return html</div></pre></td></tr></table></figure>
-</li>
-<li><p>处理数据(加载到的数据根据需要进行处理)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 去除换行并转码</div><div class="line">proStr = data.replace(&apos;\n&apos;,&apos;&apos;).replace(&apos;\r&apos;,&apos;&apos;).decode(&apos;latin-1&apos;)</div><div class="line"># 转为Json对象</div><div class="line">jsonData = json.loads(proStr[9:-1])</div></pre></td></tr></table></figure>
-</li>
-<li><p>写入MySql数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">def data_to_mysql(self,data):</div><div class="line">	conn = MySQLdb.connect(host=&apos;127.0.0.1&apos;,user=&apos;root&apos;,passwd=&apos;123456&apos;,db=&apos;test&apos;,port=3306)</div><div class="line">	cursor = conn.cursor()</div><div class="line">	for item in data:</div><div class="line"></div><div class="line">		if &quot;wap&quot; in item[&quot;attributesMap&quot;]:</div><div class="line">			wap = item[&quot;attributesMap&quot;][&quot;wap&quot;]</div><div class="line">		else:</div><div class="line">			wap = &quot;&quot;</div><div class="line"></div><div class="line">		if &quot;ttid&quot; in item[&quot;attributesMap&quot;]:</div><div class="line">			ttid = item[&quot;attributesMap&quot;][&quot;ttid&quot;]</div><div class="line">		else:</div><div class="line">			ttid = &quot;&quot;</div><div class="line"></div><div class="line">		#print item</div><div class="line">		print &quot;\n&quot;</div><div class="line">		print item[&quot;id&quot;]</div><div class="line">		if cursor.execute(&quot;select * from jxl_comment where id = %s&quot;,[item[&quot;id&quot;]]) &lt;= 0:	</div><div class="line">			strPics = &quot;&quot;</div><div class="line">			if len(item[&quot;pics&quot;]) &gt; 0:</div><div class="line">				for itemPic in item[&quot;pics&quot;]:</div><div class="line">					strPics = strPics + itemPic + &quot;,&quot;</div><div class="line">			print cursor.execute(&apos;insert into jxl_comment (id,attributes,wap,ttid,pic_height,leafCatId,pic_width,tmall_vip_level,spuId,sku,enableTime,auctionSku,cmsSource,displayUserNick,gmtCreateTime,pics,rateContent,rateDate,sellerId,tmallSweetPic,tradeEndTime,send_status) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)&apos;,</div><div class="line">				[item[&quot;id&quot;],item[&quot;attributes&quot;],wap,ttid,item[&quot;attributesMap&quot;][&quot;pic_height&quot;],</div><div class="line">				item[&quot;attributesMap&quot;][&quot;leafCatId&quot;],item[&quot;attributesMap&quot;][&quot;pic_width&quot;],item[&quot;attributesMap&quot;][&quot;tmall_vip_level&quot;],item[&quot;attributesMap&quot;][&quot;spuId&quot;],item[&quot;attributesMap&quot;][&quot;sku&quot;],</div><div class="line">				item[&quot;attributesMap&quot;][&quot;enableTime&quot;],item[&quot;auctionSku&quot;],item[&quot;cmsSource&quot;],item[&quot;displayUserNick&quot;],item[&quot;gmtCreateTime&quot;],</div><div class="line">				strPics,item[&quot;rateContent&quot;],item[&quot;rateDate&quot;],item[&quot;sellerId&quot;],item[&quot;tmallSweetPic&quot;],</div><div class="line">				item[&quot;tradeEndTime&quot;],0])</div><div class="line">			conn.commit()</div><div class="line"></div><div class="line">	cursor.close()</div><div class="line">	conn.close()</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="Python程序，1分钟的间隔去读取新的评论"><a href="#Python程序，1分钟的间隔去读取新的评论" class="headerlink" title="Python程序，1分钟的间隔去读取新的评论"></a>Python程序，1分钟的间隔去读取新的评论</h4><ul>
-<li><p>Linux注册服务</p>
-<ul>
-<li><p>Python程序实现1分钟间隔</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def main():</div><div class="line">while True:</div><div class="line">	ProcessData(&apos;21416908877&apos;,1,20,1)</div><div class="line">	time.sleep(60)</div></pre></td></tr></table></figure>
-</li>
-<li><p>Python程序文件上传到Linux服务器<br> 我上传的路径为：/var/www/Flask/tmall.py</p>
-</li>
-<li><p>Linux中/etc/rc.d/init.d/目录下创建一个服务脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">touch tmall</div><div class="line">vim tmall</div><div class="line">//写入以下内容</div><div class="line">@author:root</div><div class="line">chkconfig:35 85 15</div><div class="line">description:this tmall comment service</div><div class="line">!/usr/bin/env python /var/www/Flask/tmall.py</div></pre></td></tr></table></figure>
-</li>
-<li><p>添加服务到系统</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig –add tmall</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看服务运行状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig –list tmall</div></pre></td></tr></table></figure>
-<p> 运行后此服务一直不能起作用（未找到原因）？？？</p>
-</li>
-</ul>
-</li>
-<li><p>Linux运行一个后台程序</p>
-<ul>
-<li><p>创建后台运行程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup python /var/www/Flask/tmall.py &amp;</div></pre></td></tr></table></figure>
-</li>
-<li><p>成功后按任意键，回车退出</p>
-</li>
-<li><p>使用exit()退出终端界面，否则进程也跟着被杀死</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exit</div></pre></td></tr></table></figure>
-<p>测试运行有效，在我用putty再次登陆Root账号，运行进程被kill了，未找到原因？？？</p>
-<h4 id="window服务处理程序"><a href="#window服务处理程序" class="headerlink" title="window服务处理程序"></a>window服务处理程序</h4><p>此处只列出逻辑代码，具体细节请查看代码。。。</p>
-</li>
-<li><p>遍历MySql未处理的程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">connection.ConnectionString = connStr.ConnectionString;</div><div class="line">string sqlQuery = @&quot;select * from jxl_comment where send_status = 0&quot;;</div><div class="line">var listComment = connection.Query(sqlQuery);</div><div class="line"></div><div class="line">foreach (var item in listComment)</div><div class="line">&#123;</div><div class="line">    //业务处理</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>写入语义差评率和处理状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">string strContent = EncodeHelper.LatinToDefaul(item.rateContent);</div><div class="line">int iBadRate = DataProcess(SemanticProcess(JsonConvert.SerializeObject(strContent)));</div><div class="line"></div><div class="line">string sqlUp = string.Format(&quot;update jxl_comment set send_status = 1,bad_rate = &#123;1&#125; where id = &#123;0&#125;&quot;, item.id,iBadRate);</div><div class="line">connection.Execute(sqlUp);</div></pre></td></tr></table></figure>
-</li>
-<li><p>钉钉数据处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">string strComment = CommentProcess(strContent,item.pics,iBadRate);</div><div class="line">if (!string.IsNullOrEmpty(strComment))</div><div class="line">&#123;</div><div class="line">	SendCommentToDing(strComment);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="注册windows服务"><a href="#注册windows服务" class="headerlink" title="注册windows服务"></a>注册windows服务</h4><ul>
-<li>生成解决方案<br>解决方案debug/bin目录下，生成exe应用程序</li>
-<li>部署注册服务<br>命令行下：C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe 解决方案下的exe服务应用程序<br>如，命令行：C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe D:\WindowServer\aTestServer.exe</li>
-<li>启动服务<br>计算机-&gt;管理-&gt;服务 找到对应服务启动即可</li>
-<li>卸载服务<br>C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /u 解决方案下的exe服务应用程序</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;从天猫捞取评论数据，存储到MySql数据库，进而处理MySql中的数据，筛选需要的数据，钉钉发送给对应的人。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="http://blog.step520.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="python" scheme="http://blog.step520.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git pro读书笔记-Git分支(2)</title>
-    <link href="http://blog.step520.com/2016/12/05/git-pro%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-Git%E5%88%86%E6%94%AF-2/"/>
-    <id>http://blog.step520.com/2016/12/05/git-pro读书笔记-Git分支-2/</id>
-    <published>2016-12-05T07:58:11.000Z</published>
-    <updated>2016-12-05T14:01:57.023Z</updated>
-    
-    <content type="html"><![CDATA[<p>git分支简介，git的分支模型被称为“必杀技特性”。分支轻量的让人发指（~~~）。git鼓励频繁的使用分支和合并，随着使用的深入，便会理解它的强大和独特。<br><a id="more"></a></p>
-<h3 id="分支基本操作"><a href="#分支基本操作" class="headerlink" title="分支基本操作"></a>分支基本操作</h3><ol>
-<li><p>分支创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch newbranch</div></pre></td></tr></table></figure>
-</li>
-<li><p>分支切换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout newbranch</div></pre></td></tr></table></figure>
-</li>
-<li><p>创建并切换到此分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b newbranch</div></pre></td></tr></table></figure>
-</li>
-<li><p>分支的合并(把newbranch分支合并到master分支)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge newbranch</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d newbranch</div></pre></td></tr></table></figure>
-</li>
-<li><p>强行删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -D newbranch</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><ol>
-<li><p>查看所有分支（本地）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看哪些分支已经被当前分支合并</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --merged</div></pre></td></tr></table></figure>
-</li>
-<li><p>查看未合并到当前分支的分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --no-merged</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="分支操作步骤"><a href="#分支操作步骤" class="headerlink" title="分支操作步骤"></a>分支操作步骤</h3><ol>
-<li><p>创建分支并切换到此分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b testing</div></pre></td></tr></table></figure>
-</li>
-<li><p>在此分支进行修改(本地工作目录)</p>
-</li>
-<li><p>添加到缓存区并提交(本地仓库)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -a -m &quot;some modify&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>同步到远端仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin testing</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果需要把testing分支合并到master分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge testing</div><div class="line">...冲突解决(add,commit)...</div><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果testing分支开发完毕，删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d testing</div></pre></td></tr></table></figure>
-</li>
-<li><p>删除远端仓库tesing分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --delete testing</div></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;git分支简介，git的分支模型被称为“必杀技特性”。分支轻量的让人发指（~~~）。git鼓励频繁的使用分支和合并，随着使用的深入，便会理解它的强大和独特。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://blog.step520.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git pro读书笔记-Git基础(1)</title>
-    <link href="http://blog.step520.com/2016/12/05/git-pro%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-Git%E5%9F%BA%E7%A1%80-1/"/>
-    <id>http://blog.step520.com/2016/12/05/git-pro读书笔记-Git基础-1/</id>
-    <published>2016-12-05T07:57:47.000Z</published>
-    <updated>2016-12-05T14:02:01.481Z</updated>
-    
-    <content type="html"><![CDATA[<p>Git基本操作<br><a id="more"></a></p>
-<h4 id="获取git仓库"><a href="#获取git仓库" class="headerlink" title="获取git仓库"></a>获取git仓库</h4><ol>
-<li><p>在当前目录中初始化仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">$ git add *</div><div class="line">$ git add LICENSE</div><div class="line">$ git commit -m &quot;initial project version&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>克隆已有仓库</p>
-<ul>
-<li><p>https:// 协议</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/step/stepH5</div></pre></td></tr></table></figure>
-</li>
-<li><p>SSH 协议</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:用户名/项目名.git</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="记录每次刚更新到仓库"><a href="#记录每次刚更新到仓库" class="headerlink" title="记录每次刚更新到仓库"></a>记录每次刚更新到仓库</h4><ol>
-<li><p>基本操作（已修改-&gt;已暂存-&gt;已提交）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add *</div><div class="line">$ git commit -m &quot;提交描述信息&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一步提交（跳过暂存区域）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -a -m &quot;提交描述信息&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一些命令</p>
-<ul>
-<li><p>查看状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git status</div></pre></td></tr></table></figure>
-</li>
-<li><p>状态简览</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git status -s</div><div class="line">OR</div><div class="line">$ git status --short</div></pre></td></tr></table></figure>
-</li>
-<li><p>比较改动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">工作目录暂存区域比较(简单来说就是工作目录的更改)：</div><div class="line">$ git diff</div><div class="line">已暂存将要提交的内容（add后准备commit的内容）：</div><div class="line">$ git diff cached</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>移除和移动</p>
-<ul>
-<li><p>移除(工作移除 + 暂存区移除)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">工作目录移除：</div><div class="line">$ rm 文件名称</div><div class="line">暂存区移除：</div><div class="line">$ git rm 文件名称</div></pre></td></tr></table></figure>
-</li>
-<li><p>移动（实现重命名）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git mv 待修改文件的名称 需要修改的名称</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Git基本操作&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://blog.step520.com/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo在GitHub搭建博客</title>
-    <link href="http://blog.step520.com/2016/12/05/Hexo%E5%9C%A8GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://blog.step520.com/2016/12/05/Hexo在GitHub搭建博客/</id>
-    <published>2016-12-05T07:57:10.000Z</published>
-    <updated>2016-12-05T14:02:15.772Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hexo支持Markdown，故试着去搭建。弃用Jekyll是因为使用的windows平台。。。<br>Git提交方式为Https，非SSL方式。SSL方式简单网上资源也多，且一个key只能绑定一个账号，所以选择Https。并实现同步远程库的时候，不用每次都输入账号密码。<br><a id="more"></a></p>
-<h3 id="GitHub创建一个public仓库（名称为：-用户名-github-io-git）"><a href="#GitHub创建一个public仓库（名称为：-用户名-github-io-git）" class="headerlink" title="GitHub创建一个public仓库（名称为：{用户名}.github.io.git）"></a>GitHub创建一个public仓库（名称为：{用户名}.github.io.git）</h3><h3 id="解析一个域名-二级域名-并写入文件CNAME"><a href="#解析一个域名-二级域名-并写入文件CNAME" class="headerlink" title="解析一个域名(二级域名)并写入文件CNAME"></a>解析一个域名(二级域名)并写入文件CNAME</h3><ul>
-<li>解析一个域名<br><img src="https://ooo.0o0.ooo/2016/04/11/570b6313d16e1.png" alt="1.png"></li>
-<li>Github当前仓库创建一个CNAME文件，写入已经解析的域名，比如：blog.ccc.com<h3 id="引入Hexo"><a href="#引入Hexo" class="headerlink" title="引入Hexo"></a>引入Hexo</h3></li>
-<li>安装Node.js(脑补)</li>
-<li>安装Git(脑补)</li>
-<li><p>安装Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-</li>
-<li><p>工作目录初始化Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div><div class="line">$ cd</div><div class="line">$ npm install    ##可执行，可不执行</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装deploy的git支持</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-<li><p>配置文件更改</p>
-<ol>
-<li><p>_config.yml中的deploy更改如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repository: https://&#123;username&#125;:&#123;password&#125;@github.com/buyongfeng521/buyongfeng521.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-</li>
-<li><p>.deploy_git文件夹下的.git中config文件（更改为https的格式）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;把git clone的.git的文件夹中配置文件复制到当前配置文件&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>启动本地服务(ctrl + c停止)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-</li>
-<li><p>新建一个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo new &quot;名称&quot;</div><div class="line">$ hexo new [layout] &quot;名称&quot;</div><div class="line">$ hexo new [layout] &quot;名称&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>生成静态页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-</li>
-<li><p>部署到GitHub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
-<li>“hexo new”创建文件 时候 先 ”ctrl + c“停止服务</li>
-<li>部署步骤<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h3><p><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a><br><a href="http://wiki.jikexueyuan.com/project/hexo-document/setup.html" target="_blank" rel="external">Hexo中文版-极客学院 wiki</a><br><a href="http://ijiaober.github.io/2014/08/05/hexo/hexo-04/" target="_blank" rel="external">Hexo使用攻略（目录和标签）</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo支持Markdown，故试着去搭建。弃用Jekyll是因为使用的windows平台。。。&lt;br&gt;Git提交方式为Https，非SSL方式。SSL方式简单网上资源也多，且一个key只能绑定一个账号，所以选择Https。并实现同步远程库的时候，不用每次都输入账号密码。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://blog.step520.com/tags/Hexo/"/>
     
   </entry>
   
